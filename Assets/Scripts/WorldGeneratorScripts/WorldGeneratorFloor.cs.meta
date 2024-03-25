@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 4baaac0787bf1fb4b990bbbfd47c3102
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - DesertBlock: {fileID: 919132149155446097, guid: 366e2486387bfa346adcf0f41abe4602,
+      type: 3}
+  - FloorDetail: {fileID: 919132149155446097, guid: dc1bcfbea695130478783ba3714e1b8d,
+      type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
