@@ -912,13 +912,13 @@ PlayerSettings:
   hmiLogStartupTiming: 0
   hmiCpuConfiguration: 
   apiCompatibilityLevel: 3
-  activeInputHandler: 0
+  activeInputHandler: 2
   windowsGamepadBackendHint: 0
   cloudProjectId: 20486e62-c724-45e2-a5bd-a54b52869930
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
   projectName: KGR -V
-  organizationId: tarikdrnda
+  organizationId: sajra33
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}
