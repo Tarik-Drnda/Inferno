@@ -10,8 +10,8 @@ public class PlayerMovement : MonoBehaviour
     public float gravity = -9.81f * 2;
     public float jumpHeight = 3f;
 
-    public Transform groundCheck;
-    public float groundDistance = 0.4f;
+    public Transform groundCheck; //Provjerava da li je na zemlji
+    public float groundDistance = 0.4f; //Provjerava udaljenost igraca od zemlje
     public LayerMask groundMask;
 
     Vector3 velocity;
