@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class SelectionManager : MonoBehaviour
+public partial class SelectionManager : MonoBehaviour
 {
     public GameObject interaction_Info_UI;
     Text interaction_text;
