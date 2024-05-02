@@ -7,6 +7,7 @@ public partial class SelectionManager : MonoBehaviour
 {
     public GameObject interaction_Info_UI;
     Text interaction_text;
+    public GameObject hud;
  
     private void Start()
     {
@@ -25,10 +26,12 @@ public partial class SelectionManager : MonoBehaviour
             {
                 interaction_text.text = selectionTransform.GetComponent<InteractableObject>().GetItemName();
                 interaction_Info_UI.SetActive(true);
+                hud.SetActive(true);
             }
             else 
             { 
                 interaction_Info_UI.SetActive(false);
+                hud.SetActive(false);
             }
  
         }

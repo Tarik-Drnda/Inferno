@@ -3,7 +3,77 @@ guid: b999d9fe632094a4389d50211ed5e55a
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: abdomen2Mat
+    second: {fileID: 2100000, guid: 5d4898077512455499006c8359a2ceed, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: abdomenMat
+    second: {fileID: 2100000, guid: 5d4898077512455499006c8359a2ceed, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: chestMat
+    second: {fileID: 2100000, guid: 5d4898077512455499006c8359a2ceed, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: dl_sword13_21620Mat
+    second: {fileID: 2100000, guid: 5d4898077512455499006c8359a2ceed, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: headMat
+    second: {fileID: 2100000, guid: 5d4898077512455499006c8359a2ceed, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lCollarMat
+    second: {fileID: 2100000, guid: 5d4898077512455499006c8359a2ceed, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lEyeMat
+    second: {fileID: 2100000, guid: 5d4898077512455499006c8359a2ceed, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lFootMat
+    second: {fileID: 2100000, guid: 5d4898077512455499006c8359a2ceed, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lIndex2Mat
+    second: {fileID: 2100000, guid: 5d4898077512455499006c8359a2ceed, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: tongue04Mat
+    second: {fileID: 2100000, guid: b969a9edcc3de8247a9e1552f9c05165, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: tongue05Mat
+    second: {fileID: 2100000, guid: b969a9edcc3de8247a9e1552f9c05165, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: tongueBaseMat
+    second: {fileID: 2100000, guid: b969a9edcc3de8247a9e1552f9c05165, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: tongueTipMat
+    second: {fileID: 2100000, guid: b969a9edcc3de8247a9e1552f9c05165, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: upperJawMat
+    second: {fileID: 2100000, guid: b969a9edcc3de8247a9e1552f9c05165, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
