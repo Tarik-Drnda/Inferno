@@ -1,0 +1,53 @@
+using UnityEngine;
+using UnityEngine.EventSystems;
+
+public class DragDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler
+{
+    private RectTransform rectTransform;
+    private CanvasGroup canvasGroup;
+
+    public static GameObject itemBeingDragged;
+    private Vector3 startPosition;
+    private Transform startParent;
+
+    private void Awake()
+    {
+        rectTransform = GetComponent<RectTransform>();
+        canvasGroup = GetComponent<CanvasGroup>();
+    }
+
+    public void OnBeginDrag(PointerEventData eventData)
+    {
+        canvasGroup.alpha = .6f;
+        canvasGroup.blocksRaycasts = false;
+        startPosition = transform.position;
+        startParent = transform.parent;
+        transform.SetParent(transform.root);
+        itemBeingDragged = gameObject;
+
+        // Dodajte sljedeću liniju kako biste osigurali da se vidljivost kursora ne mijenja tijekom povlačenja
+        Cursor.visible = true; // Postavite na true ili false ovisno o vašim potrebama
+    }
+
+    public void OnDrag(PointerEventData eventData)
+    {
+        rectTransform.anchoredPosition += eventData.delta;
+    }
+
+    public void OnEndDrag(PointerEventData eventData)
+    {
+        itemBeingDragged = null;
+
+        if (transform.parent == startParent || transform.parent == transform.root)
+        {
+            transform.position = startPosition;
+            transform.SetParent(startParent);
+        }
+
+        canvasGroup.alpha = 1f;
+        canvasGroup.blocksRaycasts = true;
+
+        // Dodajte sljedeću liniju kako biste osigurali da se vidljivost kursora ne mijenja nakon završetka povlačenja
+        Cursor.visible = true; // Postavite na true ili false ovisno o vašim potrebama
+    }
+}
