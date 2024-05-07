@@ -11,8 +11,18 @@ public class SelectionManager : MonoBehaviour
 
     public GameObject interaction_Info_UI;
     Text interaction_text;
+    
+    
     public GameObject hud;
     public GameObject item;
+
+
+
+    public GameObject selectedObject;
+
+    public Image centerDotImage;
+    public Image handIcon;
+ 
 
     private void Start()
     {
@@ -43,12 +53,26 @@ public class SelectionManager : MonoBehaviour
         if (isHit)
         {
             var selectionTransform = hit.transform;
+            InteractableObject interactable = selectionTransform.GetComponent<InteractableObject>();
+            
             item = hit.transform.gameObject;
+
 
             if (selectionTransform.GetComponent<InteractableObject>() && selectionTransform.GetComponent<InteractableObject>().playerInRange)
             {
                 isInteractableInRange = true;
                 interaction_text.text = selectionTransform.GetComponent<InteractableObject>().GetItemName();
+          
+                onTarget = true;
+                selectedObject = interactable.gameObject;
+             
+                interaction_Info_UI.SetActive(true);
+                
+                hud.SetActive(true);
+                
+                
+
+
             }
         }
 
@@ -67,5 +91,18 @@ public class SelectionManager : MonoBehaviour
 
         // Toggle the HUD based on the overall state
         hud.SetActive(onTarget);
+    }
+
+
+    public void DisableSelection()
+    {
+        interaction_Info_UI.SetActive(false);
+        selectedObject = null;
+    }
+
+    public void EnableSelection()
+    {
+        interaction_Info_UI.SetActive(true);
+        selectedObject = null;
     }
 }

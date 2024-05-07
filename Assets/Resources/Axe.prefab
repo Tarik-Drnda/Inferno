@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1459716670294902963}
   - component: {fileID: 662303944396260385}
   - component: {fileID: 6530757852618430407}
+  - component: {fileID: -3437569166505365231}
   m_Layer: 5
   m_Name: Axe
   m_TagString: Untagged
@@ -89,7 +90,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76f015aa0f56ad54191e2df270351c36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 0}
 --- !u!225 &6530757852618430407
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -102,3 +102,23 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &-3437569166505365231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4675155540790871689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f25d88c10980b9a44aabc51f91e1ca12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTrashable: 1
+  thisName: Axe
+  thisDescription: aa
+  thisFunctionality: ss
+  isConsumable: 1
+  healthEffect: 2.47
+  caloriesEffect: 4.2
+  hydrationEffect: 0

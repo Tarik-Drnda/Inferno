@@ -8,4 +8,34 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/Developer/Sajra/0.krug.unity
+    guid: 3a3dd0a4f87030245aa49dcbedf76743
+  - enabled: 1
+    path: Assets/Scenes/Developer/Sajra/1.krug.unity
+    guid: 8b3bb0acb93d9ff42bcce874e4be2e69
+  - enabled: 1
+    path: Assets/Scenes/Developer/Sajra/2.krug.unity
+    guid: b910703bfc5c3834ea51ddc1730cded5
+  - enabled: 1
+    path: Assets/Scenes/Developer/Sajra/3.krug.unity
+    guid: a82ed96421f736b4caa98be8449e3022
+  - enabled: 1
+    path: Assets/Scenes/Developer/Sajra/4.krug.unity
+    guid: 8f3c0f1aa51d1b74ab4c73c4f1c558ae
+  - enabled: 1
+    path: Assets/Scenes/Developer/Sajra/5.krug.unity
+    guid: 41108244f98dbf8419bbd2c6cde36051
+  - enabled: 1
+    path: Assets/Scenes/Developer/Sajra/6.krug.unity
+    guid: 99eec4b3c7ad0b64f9868e54c8abfc69
+  - enabled: 1
+    path: Assets/Scenes/Developer/Sajra/7.krug.unity
+    guid: 7c12b2759e687bc46b6aad22e1361cfb
+  - enabled: 1
+    path: Assets/Scenes/Developer/Sajra/8.krug.unity
+    guid: 63c5c73eb7cb1ee4db54f6479594ade5
+  - enabled: 1
+    path: Assets/Scenes/Developer/Sajra/9.krug.unity
+    guid: 08e83792906532c46a6e527602eb9bec
   m_configObjects: {}
