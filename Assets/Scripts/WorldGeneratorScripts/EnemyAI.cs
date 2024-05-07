@@ -1,4 +1,5 @@
 using System;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -8,12 +9,14 @@ public class Enemy : MonoBehaviour
     public float rotationSpeed = 5f; // Adjust the speed of rotation
     public float attackRange = 40.0f;
     public float attackDamage = 10f;
-    public float attackCooldown = 1f;
+    public float attackCooldown = 10f;
 
     private Transform target;
     private bool isAttacking = false;
     private float lastAttackTime = 0f;
-
+    public GameObject playerState;
+    private Animator animator;
+    
     private Rigidbody rb;
     public float distance = 10f;
 
@@ -22,6 +25,7 @@ public class Enemy : MonoBehaviour
     private bool movingForward = true;
     void Start()
     {
+        animator = GetComponent<Animator>();
         // Find the player GameObject and set it as the target
         target = GameObject.FindGameObjectWithTag("Player").transform;
 
@@ -43,18 +47,26 @@ public class Enemy : MonoBehaviour
         if (target != null)
         {
             // Iskakulisi mi udaljenost do igraca
-            float distanceToTarget = Vector3.Distance(target.position, transform.position);
+            float distanceToTarget = Vector3.Distance(transform.position,target.position);
             Debug.Log(distanceToTarget);
 
             // Check if player is within attack range
             if (distanceToTarget <= attackRange)
             {
+                RotateTowardsPlayer();
                 MoveTowardsPlayer();
+                animator.Play("moving");
                 // Check if enough time has passed since last attack
+                Debug.Log(Time.time);
+                Debug.Log("Attack time: " + lastAttackTime + attackCooldown);
                 if (Time.time >= lastAttackTime + attackCooldown)
                 {
-                    // Attack the player
                     Attack();
+                }
+                else
+                {
+
+                    isAttacking = false;
                 }
 
             }
@@ -78,35 +90,29 @@ public class Enemy : MonoBehaviour
 
     void MoveTowardsPlayer()
     {
-        //Formula za kalkulisanje vektora prema igracu od prefaba
-        Vector3 direction = (transform.position- target.position).normalized;
+        Vector3 enemy = this.transform.position;
+        Vector3 targetPlayer = target.position;
 
-        // Pomjeri prefab prema igracu novi vektor
-        Vector3 movement = new Vector3(direction.x, 0f, direction.z) * moveSpeed * Time.deltaTime;
-        transform.Translate(movement);
+        Vector3 newPosition = Vector3.MoveTowards(enemy, targetPlayer, moveSpeed * Time.deltaTime);
+
+        this.transform.position = new Vector3(newPosition.x,0f,newPosition.z);
     }
 
     void RotateTowardsPlayer()
     {
     // Izračunaj smjer prema igraču
-        Vector3 direction = (transform.position- target.position).normalized;
-        
-
+    Vector3 direction = Vector3.RotateTowards(this.transform.position*45, target.transform.position,
+        rotationSpeed * Time.deltaTime *Mathf.Deg2Rad , 0f);
         // Rotiraj prema igraču samo na X i Z osima
         Quaternion lookRotation = Quaternion.LookRotation(direction);
-        transform.rotation = Quaternion.Euler(lookRotation.eulerAngles.x, lookRotation.eulerAngles.y, lookRotation.eulerAngles.z);
+        transform.rotation = lookRotation;
 
     }
 
     void Attack()
     {
-        // Perform attack
-        Debug.Log("Enemy attacks!");
-
-        // Deal damage to player (You can implement this part)
-        // For example, you can access the player's health script and reduce their health
-
-        // Update last attack time
+        playerState.GetComponent<PlayerState>().currentHealth -= 10;
         lastAttackTime = Time.time;
+        isAttacking = true;
     }
 }
