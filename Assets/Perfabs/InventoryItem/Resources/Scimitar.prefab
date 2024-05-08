@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1079020676406940278}
   - component: {fileID: 4035200474667662765}
   - component: {fileID: 1129562078779095832}
-  - component: {fileID: 5936009503043763204}
+  - component: {fileID: 1269422690999648893}
   - component: {fileID: 7820808504828308440}
   m_Layer: 5
   m_Name: Scimitar
@@ -90,7 +90,7 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!114 &5936009503043763204
+--- !u!114 &1269422690999648893
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 7650309115027082996}
   - component: {fileID: 3340609122735376830}
   - component: {fileID: 1032795891051834804}
-  - component: {fileID: 3027493094585285420}
   - component: {fileID: 6692766682182747725}
+  - component: {fileID: 6319416903914282622}
   - component: {fileID: -4122488849260324799}
   m_Layer: 5
   m_Name: Longsword
@@ -78,18 +78,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &3027493094585285420
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1214628476122734609}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a77ba5a503df373499249b2b0624b701, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!225 &6692766682182747725
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -102,6 +90,18 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &6319416903914282622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1214628476122734609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a77ba5a503df373499249b2b0624b701, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &-4122488849260324799
 MonoBehaviour:
   m_ObjectHideFlags: 0

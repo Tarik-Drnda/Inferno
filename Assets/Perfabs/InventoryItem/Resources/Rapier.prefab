@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 7151819294009623537}
   - component: {fileID: 5343943999979369044}
   - component: {fileID: 5446624959686404867}
-  - component: {fileID: -5210711561849998430}
   - component: {fileID: 2074979750956701129}
+  - component: {fileID: 210802947903137031}
   - component: {fileID: -9161933463376425425}
   m_Layer: 5
   m_Name: Rapier
@@ -78,18 +78,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &-5210711561849998430
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9198056160111883259}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a77ba5a503df373499249b2b0624b701, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!225 &2074979750956701129
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -102,6 +90,18 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &210802947903137031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9198056160111883259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a77ba5a503df373499249b2b0624b701, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &-9161933463376425425
 MonoBehaviour:
   m_ObjectHideFlags: 0
