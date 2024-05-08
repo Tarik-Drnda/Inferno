@@ -1,6 +1,6 @@
-using System.Collections;
+
 using System.Collections.Generic;
-using System.Net.Mime;
+
 using UnityEngine;
 using UnityEngine.UI;
  
@@ -73,7 +73,7 @@ public class EquipSystem : MonoBehaviour
                 selectedItem = getSelectedItem(number);
                 selectedItem.GetComponent<InventoryItem>().isSelected = true;
 
-                SetEquippedModel(selectedItem);
+             //   SetEquippedModel(selectedItem);
                 
                 //changing the color
                 foreach (Transform child in numbersHolder.transform)
@@ -104,9 +104,9 @@ public class EquipSystem : MonoBehaviour
 
     private void SetEquippedModel(GameObject selectedItem)
     {
-        string selectedItemName = selectedItem.name.Replace("Clone", "");
-        GameObject itemModel = Instantiate(Resources.Load<GameObject>(selectedItem + "_Model"), new Vector3(0.6f, 0, 0.4f),Quaternion.Euler(0, 12.5f, 20f));
-        itemModel.transform.SetParent(toolHolder.transform,false);
+       // string selectedItemName = selectedItem.name.Replace("Clone", "");
+        //GameObject itemModel = Instantiate(Resources.Load<GameObject>(selectedItem + "_Model"), new Vector3(0.6f, 0, 0.4f),Quaternion.Euler(0, 12.5f, 20f));
+        //itemModel.transform.SetParent(toolHolder.transform,false);
     }
 
     private GameObject getSelectedItem(int slotNumber)

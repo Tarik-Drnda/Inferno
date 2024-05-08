@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1079020676406940278}
   - component: {fileID: 4035200474667662765}
   - component: {fileID: 1129562078779095832}
-  - component: {fileID: 1269422690999648893}
+  - component: {fileID: 5936009503043763204}
   - component: {fileID: 7820808504828308440}
   m_Layer: 5
   m_Name: Scimitar
@@ -90,7 +90,7 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!114 &1269422690999648893
+--- !u!114 &5936009503043763204
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -99,7 +99,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4438718377049316411}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76f015aa0f56ad54191e2df270351c36, type: 3}
+  m_Script: {fileID: 11500000, guid: a77ba5a503df373499249b2b0624b701, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &7820808504828308440

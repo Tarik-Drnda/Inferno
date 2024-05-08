@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 2565239764768643067}
   - component: {fileID: 527981357660279626}
   - component: {fileID: 4059775298520294113}
-  - component: {fileID: 4746362882235136086}
   - component: {fileID: 7146988164693632880}
+  - component: {fileID: 4672934084321037097}
   - component: {fileID: -456909154133176911}
   m_Layer: 5
   m_Name: Sabre
@@ -78,18 +78,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &4746362882235136086
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8056048536733196949}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76f015aa0f56ad54191e2df270351c36, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!225 &7146988164693632880
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -102,6 +90,18 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &4672934084321037097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8056048536733196949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a77ba5a503df373499249b2b0624b701, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &-456909154133176911
 MonoBehaviour:
   m_ObjectHideFlags: 0

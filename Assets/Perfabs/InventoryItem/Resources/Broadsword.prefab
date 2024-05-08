@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 6481163689782331975}
   - component: {fileID: 1740033929902202971}
   - component: {fileID: 8723537680256289113}
-  - component: {fileID: -1234067219474057706}
+  - component: {fileID: 4426124321048493456}
+  - component: {fileID: 2886780068244407569}
   m_Layer: 5
   m_Name: Broadsword
   m_TagString: Untagged
@@ -100,7 +101,7 @@ MonoBehaviour:
   isEquippable: 1
   isUnsideQuickSlot: 0
   isSelected: 0
---- !u!114 &-1234067219474057706
+--- !u!114 &4426124321048493456
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -109,6 +110,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 7867787861485346583}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76f015aa0f56ad54191e2df270351c36, type: 3}
+  m_Script: {fileID: 11500000, guid: a77ba5a503df373499249b2b0624b701, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!225 &2886780068244407569
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7867787861485346583}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
