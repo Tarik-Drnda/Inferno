@@ -8549,6 +8549,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fbf5d048b1c1944e959e2ab5f053e8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  caloriesCounter: {fileID: 1295994714}
+  playerState: {fileID: 968809724}
 --- !u!114 &230093797
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31546,6 +31548,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03dab72ad990ad643b28f8236e9711a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthCounter: {fileID: 2065106445}
+  playerState: {fileID: 968809724}
 --- !u!114 &766328777
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35658,6 +35662,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2da14c30e151b7043ae1e397eb4d6670, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ItemInfoUI: {fileID: 1001005247}
+  inventoryScreenUI: {fileID: 1277198709}
+  slotList: []
+  itemList: []
+  isOpen: 0
+  pickupAlert: {fileID: 1458256374}
+  pickupName: {fileID: 808958535}
+  pickupImage: {fileID: 1660222204}
 --- !u!4 &892708473
 Transform:
   m_ObjectHideFlags: 0
@@ -38774,6 +38786,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 438c12c6552e2d44081397271a7405fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentHealth: 100
+  maxHealth: 100
+  currentCalories: 100
+  maxCalories: 100
+  playerBody: {fileID: 2095033967}
+  currentHydrationPercent: 100
+  maxHydrationPercent: 100
+  isHydrationActive: 0
 --- !u!4 &968809726
 Transform:
   m_ObjectHideFlags: 0
@@ -50251,6 +50271,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0eae2640a4aa6544f8e29b04a0f1404f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hydrationCounter: {fileID: 666719885}
+  playerState: {fileID: 968809724}
 --- !u!114 &1272466665
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58655,7 +58677,7 @@ GameObject:
   - component: {fileID: 1434871694}
   - component: {fileID: 1434871693}
   m_Layer: 5
-  m_Name: ItemDescription
+  m_Name: itemDescription
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -80052,7 +80074,7 @@ GameObject:
   - component: {fileID: 1935500013}
   - component: {fileID: 1935500012}
   m_Layer: 5
-  m_Name: ItemName
+  m_Name: itemName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

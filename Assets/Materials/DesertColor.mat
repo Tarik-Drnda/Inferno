@@ -43,5 +43,5 @@ Material:
     - _WorkflowMode: 0
     m_Colors:
     - _BaseColor: {r: 0.48247975, g: 0.2441505, b: 0.027960401, a: 1}
-    - _Color: {r: 0.48247975, g: 0.24415046, b: 0.027960401, a: 1}
+    - _Color: {r: 0.48247975, g: 0.2441505, b: 0.027960401, a: 1}
   m_BuildTextureStacks: []

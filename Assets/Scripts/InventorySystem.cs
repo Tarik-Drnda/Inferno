@@ -18,7 +18,7 @@ public class InventorySystem : MonoBehaviour
     public List<string> itemList = new List<string>();
     private GameObject itemToAdd;
     private GameObject whatSlotToEquip;
-    public bool isOpen=false;
+    public bool isOpen;
   //  public bool isFull;
   
     //PICKUP POPUO
@@ -43,7 +43,7 @@ public class InventorySystem : MonoBehaviour
  
     void Start()
     {
-       // isOpen = false;
+       isOpen = false;
      
         PopulateSlotList();
 
@@ -72,7 +72,7 @@ public class InventorySystem : MonoBehaviour
             inventoryScreenUI.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
-            SelectionManager.Instance.EnableSelection();
+           SelectionManager.Instance.EnableSelection();
             SelectionManager.Instance.GetComponent<SelectionManager>().enabled = false;
             isOpen = true;
             Debug.Log(isOpen);
@@ -83,6 +83,7 @@ public class InventorySystem : MonoBehaviour
             inventoryScreenUI.SetActive(false);
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
+            //ovdje je greska kod selectiona 
             SelectionManager.Instance.DisableSelection();
             SelectionManager.Instance.GetComponent<SelectionManager>().enabled = true;
             isOpen = false;

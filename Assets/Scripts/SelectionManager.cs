@@ -20,8 +20,8 @@ public class SelectionManager : MonoBehaviour
 
     public GameObject selectedObject;
 
-    public Image centerDotImage;
-    public Image handIcon;
+  //  public Image centerDotImage;
+    //public Image handIcon;
  
 
     private void Start()
