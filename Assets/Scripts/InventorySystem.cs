@@ -72,7 +72,7 @@ public class InventorySystem : MonoBehaviour
             inventoryScreenUI.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
-           SelectionManager.Instance.EnableSelection();
+           SelectionManager.Instance.DisableSelection();
             SelectionManager.Instance.GetComponent<SelectionManager>().enabled = false;
             isOpen = true;
             Debug.Log(isOpen);
@@ -84,7 +84,7 @@ public class InventorySystem : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
             //ovdje je greska kod selectiona 
-            SelectionManager.Instance.DisableSelection();
+            SelectionManager.Instance.EnableSelection();
             SelectionManager.Instance.GetComponent<SelectionManager>().enabled = true;
             isOpen = false;
         }

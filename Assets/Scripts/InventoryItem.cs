@@ -12,7 +12,7 @@ public class InventoryItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
  
     // --- Item Info UI --- //
     private GameObject itemInfoUI;
- 
+    
     private Text itemInfoUI_itemName;
     private Text itemInfoUI_itemDescription;
     private Text itemInfoUI_itemFunctionality;

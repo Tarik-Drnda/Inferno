@@ -9,25 +9,26 @@ public class SelectionManager : MonoBehaviour
     public static SelectionManager Instance { get; private set; }
     public bool onTarget = false;
 
-    public GameObject interaction_Info_UI;
+    public GameObject Crosshair;
+    public GameObject Pointer;
     Text interaction_text;
-    
-    
+
+    public GameObject textBox;
     public GameObject hud;
     public GameObject item;
 
-
+    private bool isInteractableInRange = false;
 
     public GameObject selectedObject;
 
-  //  public Image centerDotImage;
-    //public Image handIcon;
+  //  public Image centerDotImage; // to je crosshair
+    //public Image handIcon; // to je pointer
  
 
     private void Start()
     {
-        interaction_text = interaction_Info_UI.GetComponent<Text>();
-        interaction_Info_UI.SetActive(false); // Start with UI disabled
+        interaction_text = textBox.GetComponent<Text>();
+        Crosshair.SetActive(true); // Start with UI disabled
     }
 
     private void Awake()
@@ -48,61 +49,63 @@ public class SelectionManager : MonoBehaviour
         RaycastHit hit;
 
         bool isHit = Physics.Raycast(ray, out hit);
-        bool isInteractableInRange = false;
+       
 
         if (isHit)
         {
+            
             var selectionTransform = hit.transform;
             InteractableObject interactable = selectionTransform.GetComponent<InteractableObject>();
             
             item = hit.transform.gameObject;
 
 
-            if (selectionTransform.GetComponent<InteractableObject>() && selectionTransform.GetComponent<InteractableObject>().playerInRange)
+            if (selectionTransform.GetComponent<InteractableObject>() && selectionTransform.GetComponent<InteractableObject>().playerInRange==true)
             {
                 isInteractableInRange = true;
-                interaction_text.text = selectionTransform.GetComponent<InteractableObject>().GetItemName();
-          
+                interaction_text.text = item.GetComponent<InteractableObject>().GetItemName();
+                             
                 onTarget = true;
                 selectedObject = interactable.gameObject;
              
-                interaction_Info_UI.SetActive(true);
-                
+                Pointer.SetActive(true);
+                Crosshair.SetActive(false);
                 hud.SetActive(true);
-                
-                
-
-
+                textBox.SetActive(true);
             }
-        }
-
-        if (isInteractableInRange)
-        {
-            // Show UI only if an interactable object is in range
-            interaction_Info_UI.SetActive(true);
-            onTarget = true;
+            else
+            {
+                Pointer.SetActive(false);
+                textBox.SetActive(false);
+                Crosshair.SetActive(true);
+                hud.SetActive(false);
+            }
         }
         else
         {
-            // Hide UI if no interactable object is in range
-            interaction_Info_UI.SetActive(false);
-            onTarget = false;
+            Crosshair.SetActive(true);
+            Pointer.SetActive(false);
+            textBox.SetActive(true);
+            hud.SetActive(false);
         }
 
+
+
         // Toggle the HUD based on the overall state
-        hud.SetActive(onTarget);
+        
     }
 
 
     public void DisableSelection()
     {
-        interaction_Info_UI.SetActive(false);
+       Pointer.SetActive(false);
+       Crosshair.SetActive(false);
         selectedObject = null;
     }
 
     public void EnableSelection()
     {
-        interaction_Info_UI.SetActive(true);
+        Pointer.SetActive(true);
         selectedObject = null;
     }
 }
