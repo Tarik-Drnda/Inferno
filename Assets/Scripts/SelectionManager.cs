@@ -9,7 +9,8 @@ public class SelectionManager : MonoBehaviour
     public static SelectionManager Instance { get; private set; }
     public bool onTarget = false;
 
-    public GameObject interaction_Info_UI;
+    public GameObject Crosshair;
+    public GameObject Pointer;
     Text interaction_text;
     
     
@@ -26,8 +27,8 @@ public class SelectionManager : MonoBehaviour
 
     private void Start()
     {
-        interaction_text = interaction_Info_UI.GetComponent<Text>();
-        interaction_Info_UI.SetActive(false); // Start with UI disabled
+        interaction_text = Crosshair.GetComponent<Text>();
+        Crosshair.SetActive(true); // Start with UI disabled
     }
 
     private void Awake()
@@ -66,8 +67,8 @@ public class SelectionManager : MonoBehaviour
                 onTarget = true;
                 selectedObject = interactable.gameObject;
              
-                interaction_Info_UI.SetActive(true);
-                
+                Pointer.SetActive(true);
+                Crosshair.SetActive(false);
                 hud.SetActive(true);
                 
                 
@@ -75,17 +76,21 @@ public class SelectionManager : MonoBehaviour
 
             }
         }
+        else
+        {
+            Crosshair.SetActive(true);
+        }
 
         if (isInteractableInRange)
         {
             // Show UI only if an interactable object is in range
-            interaction_Info_UI.SetActive(true);
+            Pointer.SetActive(true);
             onTarget = true;
         }
         else
         {
             // Hide UI if no interactable object is in range
-            interaction_Info_UI.SetActive(false);
+            Pointer.SetActive(false);
             onTarget = false;
         }
 
@@ -96,13 +101,14 @@ public class SelectionManager : MonoBehaviour
 
     public void DisableSelection()
     {
-        interaction_Info_UI.SetActive(false);
+       Pointer.SetActive(false);
+       Crosshair.SetActive(true);
         selectedObject = null;
     }
 
     public void EnableSelection()
     {
-        interaction_Info_UI.SetActive(true);
+        Pointer.SetActive(true);
         selectedObject = null;
     }
 }
