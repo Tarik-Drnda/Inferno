@@ -12,23 +12,23 @@ public class SelectionManager : MonoBehaviour
     public GameObject Crosshair;
     public GameObject Pointer;
     Text interaction_text;
-
-    public GameObject textBox;
+    
     public GameObject hud;
     public GameObject item;
-
+    public GameObject Interaction_Info_UI;
     private bool isInteractableInRange = false;
 
     public GameObject selectedObject;
 
-  //  public Image centerDotImage; // to je crosshair
-    //public Image handIcon; // to je pointer
+
+
  
 
     private void Start()
     {
-        interaction_text = textBox.GetComponent<Text>();
+        interaction_text = Interaction_Info_UI.GetComponent<Text>();
         Crosshair.SetActive(true); // Start with UI disabled
+        Cursor.visible = false;
     }
 
     private void Awake()
@@ -45,6 +45,7 @@ public class SelectionManager : MonoBehaviour
 
     void Update()
     {
+        Cursor.visible = false;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
@@ -68,23 +69,28 @@ public class SelectionManager : MonoBehaviour
                 onTarget = true;
                 selectedObject = interactable.gameObject;
 
+
                 if (selectedObject.CompareTag("Pickable"))
                 {
                     Pointer.SetActive(true);
                     Crosshair.SetActive(false);
+                    Interaction_Info_UI.SetActive(true);
+               
                 }
                 else
                 {
                     Pointer.SetActive(false);
                     Crosshair.SetActive(true);
+                    Interaction_Info_UI.SetActive(false);
+                    
                 }
                 hud.SetActive(true);
-                textBox.SetActive(true);
+                Interaction_Info_UI.SetActive(true);
+             
             }
             else
             {
                 Pointer.SetActive(false);
-                textBox.SetActive(false);
                 Crosshair.SetActive(true);
                 hud.SetActive(false);
                 interaction_text.text = null;
@@ -92,9 +98,12 @@ public class SelectionManager : MonoBehaviour
         }
         else
         {
+            onTarget = true;
+            Interaction_Info_UI.SetActive(false);
+            
             Crosshair.SetActive(true);
             Pointer.SetActive(false);
-            textBox.SetActive(false);
+            
             hud.SetActive(false);
         }
     }

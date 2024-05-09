@@ -174,6 +174,7 @@ GameObject:
   - component: {fileID: -644943985069934621}
   - component: {fileID: 7706295296578338441}
   - component: {fileID: -3868868439585764958}
+  - component: {fileID: -3638254283337195646}
   m_Layer: 0
   m_Name: Scimitar
   m_TagString: Untagged
@@ -305,3 +306,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerInRange: 0
   ItemName: Scimitar
+--- !u!114 &-3638254283337195646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f25d88c10980b9a44aabc51f91e1ca12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTrashable: 0
+  thisName: 
+  thisDescription: 
+  thisFunctionality: 
+  isConsumable: 0
+  healthEffect: 0
+  caloriesEffect: 0
+  hydrationEffect: 0
+  isEquippable: 0
+  isUnsideQuickSlot: 0
+  isSelected: 0

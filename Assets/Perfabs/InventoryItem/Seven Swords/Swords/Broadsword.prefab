@@ -120,6 +120,7 @@ GameObject:
   - component: {fileID: -8561343293465565185}
   - component: {fileID: -8751525355741480607}
   - component: {fileID: -6593664063208644396}
+  - component: {fileID: -8401570105264681706}
   m_Layer: 0
   m_Name: Broadsword
   m_TagString: Untagged
@@ -251,6 +252,29 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.29076424, y: 1.6001849, z: 0.07995022}
   m_Center: {x: 0, y: 0.57596815, z: 0}
+--- !u!114 &-8401570105264681706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f25d88c10980b9a44aabc51f91e1ca12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTrashable: 0
+  thisName: 
+  thisDescription: 
+  thisFunctionality: 
+  isConsumable: 0
+  healthEffect: 0
+  caloriesEffect: 0
+  hydrationEffect: 0
+  isEquippable: 0
+  isUnsideQuickSlot: 0
+  isSelected: 0
 --- !u!1 &100006
 GameObject:
   m_ObjectHideFlags: 0

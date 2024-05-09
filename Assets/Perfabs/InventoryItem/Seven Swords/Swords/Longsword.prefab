@@ -173,6 +173,7 @@ GameObject:
   - component: {fileID: -560189976850691312}
   - component: {fileID: 9147030050958826609}
   - component: {fileID: 4217001700148606539}
+  - component: {fileID: 4858789128521793006}
   m_Layer: 0
   m_Name: Longsword
   m_TagString: Untagged
@@ -304,3 +305,26 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.50357413, y: 1.7583234, z: 0.14374557}
   m_Center: {x: 0, y: 0.67118096, z: 0}
+--- !u!114 &4858789128521793006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f25d88c10980b9a44aabc51f91e1ca12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTrashable: 0
+  thisName: 
+  thisDescription: 
+  thisFunctionality: 
+  isConsumable: 0
+  healthEffect: 0
+  caloriesEffect: 0
+  hydrationEffect: 0
+  isEquippable: 0
+  isUnsideQuickSlot: 0
+  isSelected: 0
