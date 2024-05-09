@@ -67,9 +67,17 @@ public class SelectionManager : MonoBehaviour
                              
                 onTarget = true;
                 selectedObject = interactable.gameObject;
-             
-                Pointer.SetActive(true);
-                Crosshair.SetActive(false);
+
+                if (selectedObject.CompareTag("Pickable"))
+                {
+                    Pointer.SetActive(true);
+                    Crosshair.SetActive(false);
+                }
+                else
+                {
+                    Pointer.SetActive(false);
+                    Crosshair.SetActive(true);
+                }
                 hud.SetActive(true);
                 textBox.SetActive(true);
             }
@@ -79,20 +87,16 @@ public class SelectionManager : MonoBehaviour
                 textBox.SetActive(false);
                 Crosshair.SetActive(true);
                 hud.SetActive(false);
+                interaction_text.text = null;
             }
         }
         else
         {
             Crosshair.SetActive(true);
             Pointer.SetActive(false);
-            textBox.SetActive(true);
+            textBox.SetActive(false);
             hud.SetActive(false);
         }
-
-
-
-        // Toggle the HUD based on the overall state
-        
     }
 
 

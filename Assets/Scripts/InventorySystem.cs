@@ -21,7 +21,7 @@ public class InventorySystem : MonoBehaviour
     public bool isOpen;
   //  public bool isFull;
   
-    //PICKUP POPUO
+    //PICKUP POPUP
 
     public GameObject pickupAlert;
     public Text pickupName;
