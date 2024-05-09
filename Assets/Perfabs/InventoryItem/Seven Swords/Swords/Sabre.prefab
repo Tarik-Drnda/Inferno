@@ -173,6 +173,7 @@ GameObject:
   - component: {fileID: 5008807795421739708}
   - component: {fileID: -6043272884852718057}
   - component: {fileID: -4052899821387058797}
+  - component: {fileID: 5205579849613638172}
   m_Layer: 0
   m_Name: Sabre
   m_TagString: Untagged
@@ -304,3 +305,26 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.4283176, y: 1.6647196, z: 0.0822382}
   m_Center: {x: -0.045029134, y: 0.6858287, z: -0.0000000037252903}
+--- !u!114 &5205579849613638172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f25d88c10980b9a44aabc51f91e1ca12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTrashable: 0
+  thisName: 
+  thisDescription: 
+  thisFunctionality: 
+  isConsumable: 0
+  healthEffect: 0
+  caloriesEffect: 0
+  hydrationEffect: 0
+  isEquippable: 0
+  isUnsideQuickSlot: 0
+  isSelected: 0

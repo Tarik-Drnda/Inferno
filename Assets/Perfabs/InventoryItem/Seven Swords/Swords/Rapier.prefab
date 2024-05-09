@@ -173,6 +173,7 @@ GameObject:
   - component: {fileID: -7860607954381625862}
   - component: {fileID: -7765873100513005324}
   - component: {fileID: -8595048588136930703}
+  - component: {fileID: 188926737665556882}
   m_Layer: 0
   m_Name: Rapier
   m_TagString: Untagged
@@ -304,3 +305,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerInRange: 0
   ItemName: Rapier
+--- !u!114 &188926737665556882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f25d88c10980b9a44aabc51f91e1ca12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTrashable: 0
+  thisName: 
+  thisDescription: 
+  thisFunctionality: 
+  isConsumable: 0
+  healthEffect: 0
+  caloriesEffect: 0
+  hydrationEffect: 0
+  isEquippable: 0
+  isUnsideQuickSlot: 0
+  isSelected: 0
