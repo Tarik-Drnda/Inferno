@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1740033929902202971}
   - component: {fileID: 8723537680256289113}
   - component: {fileID: -1234067219474057706}
+  - component: {fileID: 1149893009710776234}
   m_Layer: 5
   m_Name: Broadsword
   m_TagString: Untagged
@@ -112,3 +113,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a77ba5a503df373499249b2b0624b701, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!225 &1149893009710776234
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7867787861485346583}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
