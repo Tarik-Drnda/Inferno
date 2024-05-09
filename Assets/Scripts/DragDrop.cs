@@ -25,8 +25,7 @@ public class DragDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDrag
         transform.SetParent(transform.root);
         itemBeingDragged = gameObject;
 
-        // Dodajte sljedeću liniju kako biste osigurali da se vidljivost kursora ne mijenja tijekom povlačenja
-        Cursor.visible = true; // Postavite na true ili false ovisno o vašim potrebama
+     
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -47,7 +46,6 @@ public class DragDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDrag
         canvasGroup.alpha = 1f;
         canvasGroup.blocksRaycasts = true;
 
-        // Dodajte sljedeću liniju kako biste osigurali da se vidljivost kursora ne mijenja nakon završetka povlačenja
-        Cursor.visible = true; // Postavite na true ili false ovisno o vašim potrebama
+       
     }
 }

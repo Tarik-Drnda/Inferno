@@ -27,3 +27,4 @@ public class HealthBar : MonoBehaviour
         healthCounter.text = currentHealth + "/" + maxHealth;
     }
 }
+
