@@ -1,11 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public Button LoadGameBTN;
+
+    private void Start()
+    {
+        LoadGameBTN.onClick.AddListener(() =>
+        {
+            SaveManager.Instance.StartLoadedGame();
+        });
+    }
+
     public void NewGame()
     {
         SceneManager.LoadScene("0.krug");
