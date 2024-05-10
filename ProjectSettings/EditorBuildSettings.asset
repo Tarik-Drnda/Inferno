@@ -5,12 +5,15 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MainScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
+    path: Assets/Scenes/Developer/Sajra/MainMenu.unity
+    guid: 6bd4f85e7ba33d9409fc07c4dba5a654
+  - enabled: 1
     path: Assets/Scenes/Developer/Sajra/0.krug.unity
-    guid: 3a3dd0a4f87030245aa49dcbedf76743
+    guid: d90950099abc9fa45b376d53929f56a8
   - enabled: 1
     path: Assets/Scenes/Developer/Sajra/1.krug.unity
     guid: 8b3bb0acb93d9ff42bcce874e4be2e69
