@@ -15,7 +15,8 @@ public class EquipSystem : MonoBehaviour
     public List<string> itemList = new List<string>();
 
     public GameObject numbersHolder;
-
+    private GameObject itemModel;
+    
     public int selectedNumber = -1;
     public GameObject selectedItem;
     public GameObject toolHolder;
@@ -98,6 +99,12 @@ public class EquipSystem : MonoBehaviour
                     child.transform.Find("Text").GetComponent<Text>().color=Color.gray;
             
                 }
+
+                if (itemModel != null)
+                {
+                    Destroy(itemModel);
+                    itemModel = null;
+                }
             }
         }
         
@@ -106,8 +113,9 @@ public class EquipSystem : MonoBehaviour
     private void SetEquippedModel(GameObject selectedItem)
     {
        string selectedItemName = selectedItem.name.Replace("(Clone)", "");
-       GameObject itemModel = Instantiate(Resources.Load<GameObject>(selectedItemName + "_Model"), new Vector3(0.304f, 0.87f, 0.635f),Quaternion.Euler(-1.973f, 83.094f, 6.819f));
+       itemModel = Instantiate(Resources.Load<GameObject>(selectedItemName + "_Model"), new Vector3(0.317f, 0.594f, 0.603f),Quaternion.Euler(-1.973f, 83.094f, 6.819f));
        itemModel.transform.SetParent(toolHolder.transform,false);
+       itemModel.GetComponent<BoxCollider>().enabled = false;
     }
 
     private GameObject getSelectedItem(int slotNumber)

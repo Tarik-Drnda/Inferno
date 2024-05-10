@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using UnityEngine;
 
 public class PlayerState : MonoBehaviour
@@ -27,6 +28,9 @@ public class PlayerState : MonoBehaviour
     public bool isHydrationActive;
     public static PlayerState Instance { get; set; }
 
+    // Regeneration
+    [CanBeNull] private float timepass = 5f;
+    private float timeUkupno = 0f;
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -46,7 +50,7 @@ public class PlayerState : MonoBehaviour
         currentHydrationPercent = maxHydrationPercent;
 
         StartCoroutine(decreaseHydration());
-
+        
     }
 
     IEnumerator decreaseHydration()
@@ -65,12 +69,18 @@ public class PlayerState : MonoBehaviour
         distanceTraveled += Vector3.Distance(playerBody.transform.position, lastPosition);
         lastPosition = playerBody.transform.position;
 
-        if (distanceTraveled >= 5)
+        if (Input.GetKey(KeyCode.LeftShift) && currentCalories>0)
         {
-            distanceTraveled = 0;
-            currentCalories -= 1;
+            InvokeRepeating("EnergyConsumption", 2f, 1f);
+                playerBody.GetComponent<PlayerMovement>().speed = 18f;
+                CancelInvoke("EnergyRegeneration");
         }
-        
+        else
+        {
+            CancelInvoke("EnergyConsumption");
+            InvokeRepeating("EnergyRegeneration",5,1f);
+            playerBody.GetComponent<PlayerMovement>().speed = 12f;
+        }
         
         if (Input.GetKeyDown(KeyCode.N))
         {
@@ -78,7 +88,17 @@ public class PlayerState : MonoBehaviour
         }
     }
 
+    public void EnergyRegeneration()
+    {
+        if(currentCalories!=100)
+            currentCalories += 1;
+    }
 
+    public void EnergyConsumption()
+    {
+        if(currentCalories>0)
+            currentCalories -= 1;
+    }
     public void setHealth(float newHealth)
     {
         currentHealth = newHealth;
