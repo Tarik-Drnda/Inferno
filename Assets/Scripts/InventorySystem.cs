@@ -93,10 +93,10 @@ public class InventorySystem : MonoBehaviour
 
     public void AddToInventory(string itemName)
     {
-        if (SaveManager.Instance.isLoading == false)
-        {
+       // if (SaveManager.Instance.isLoading == false)
+       // {
             //muzika SoundManager.Instance.PlaySound(SoundManager.Instacne.pickItemSound);
-        }
+       // }
         
             whatSlotToEquip = FindNextEmptySlot();
             itemToAdd = Instantiate(Resources.Load<GameObject>(itemName),
