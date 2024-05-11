@@ -19,15 +19,15 @@ public class InventorySystem : MonoBehaviour
     private GameObject itemToAdd;
     private GameObject whatSlotToEquip;
     public bool isOpen;
-  //  public bool isFull;
+  
   
     //PICKUP POPUP
 
     public GameObject pickupAlert;
     public Text pickupName;
     public Image pickupImage;
-    
- 
+
+    public List<string> itemsPickedup;
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -93,6 +93,11 @@ public class InventorySystem : MonoBehaviour
 
     public void AddToInventory(string itemName)
     {
+        if (SaveManager.Instance.isLoading == false)
+        {
+            //muzika SoundManager.Instance.PlaySound(SoundManager.Instacne.pickItemSound);
+        }
+        
             whatSlotToEquip = FindNextEmptySlot();
             itemToAdd = Instantiate(Resources.Load<GameObject>(itemName),
                 whatSlotToEquip.transform.position, whatSlotToEquip.transform.rotation);
