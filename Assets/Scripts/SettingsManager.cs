@@ -45,7 +45,7 @@ public class SettingsManager : MonoBehaviour
 
     private IEnumerator LoadAndApplySettings()
     {
-        LoadAndSetVolume();
+       // LoadAndSetVolume();
         yield return new WaitForSeconds(0.1f);
     }
 

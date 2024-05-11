@@ -14,8 +14,8 @@ public class SaveSlot : MonoBehaviour
    public int slotNumber;
 
    public GameObject alertUI;
-    Button yesBTN;
-    Button noBTN;
+    private Button yesBTN;
+    private Button noBTN;
 
 
    private void Awake()

@@ -28,6 +28,8 @@ public class InventorySystem : MonoBehaviour
     public Image pickupImage;
 
     public List<string> itemsPickedup;
+
+    
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -104,18 +106,25 @@ public class InventorySystem : MonoBehaviour
             itemToAdd.transform.SetParent(whatSlotToEquip.transform);
 
             TriggerPickUpPop(itemName,itemToAdd.GetComponent<Image>().sprite);
-            
+            Invoke("TriggerPickUpDiss",3f);
             
             itemList.Add(itemName);
         
     }
 
-    void TriggerPickUpPop(string itemName, Sprite itemSprite)
+   public void TriggerPickUpPop(string itemName, Sprite itemSprite)
     {
         pickupAlert.SetActive(true);
         pickupName.text = itemName;
         pickupImage.sprite = itemSprite;
     }
+    public void TriggerPickUpDiss()
+    {
+        pickupAlert.SetActive(false);
+        pickupName.text = null;
+        pickupImage.sprite = null;
+    }
+
     private GameObject FindNextEmptySlot()
     {
         foreach (GameObject slot in slotList)

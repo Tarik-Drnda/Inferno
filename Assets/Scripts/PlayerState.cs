@@ -71,14 +71,14 @@ public class PlayerState : MonoBehaviour
 
         if (Input.GetKey(KeyCode.LeftShift) && currentCalories>0)
         {
-            InvokeRepeating("EnergyConsumption", 2f, 1f);
+            InvokeRepeating("EnergyConsumption", 1.5f, 105f);
                 playerBody.GetComponent<PlayerMovement>().speed = 18f;
                 CancelInvoke("EnergyRegeneration");
         }
         else
         {
             CancelInvoke("EnergyConsumption");
-            InvokeRepeating("EnergyRegeneration",5,1f);
+            InvokeRepeating("EnergyRegeneration",5,105f);
             playerBody.GetComponent<PlayerMovement>().speed = 12f;
         }
         

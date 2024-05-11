@@ -42,18 +42,26 @@ public class EquipSystem : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
+            Destroy(itemModel);
+            itemModel = null;
             SelectQuicSlot(1);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
+            Destroy(itemModel);
+            itemModel = null;
             SelectQuicSlot(2);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha3))
         {
+            Destroy(itemModel);
+            itemModel = null;
             SelectQuicSlot(3);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha4))
         {
+            Destroy(itemModel);
+            itemModel = null;
             SelectQuicSlot(4);
         }
     }
@@ -70,7 +78,7 @@ public class EquipSystem : MonoBehaviour
                 {
                     selectedItem.gameObject.GetComponent<InventoryItem>().isSelected = false;
                 }
-            
+                
                 selectedItem = getSelectedItem(number);
                 selectedItem.GetComponent<InventoryItem>().isSelected = true;
                 
@@ -85,6 +93,7 @@ public class EquipSystem : MonoBehaviour
                 }
                 Text toBeChanger = numbersHolder.transform.Find("number" + number).transform.Find("Text").GetComponent<Text>();
                 toBeChanger.color = Color.white;
+
             }
             else
                 //trying to select the same slot

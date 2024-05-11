@@ -7,7 +7,8 @@ public class InteractableObject : MonoBehaviour
 {
     public bool playerInRange;
     public string ItemName;
- 
+
+    private float vrijeme = 0f;
     public string GetItemName()
     {
         return ItemName;
@@ -36,17 +37,16 @@ public class InteractableObject : MonoBehaviour
             //if invenory is not full
             if (!InventorySystem.Instance.CheckIfFull())
             {
-             InventorySystem.Instance.AddToInventory(ItemName);  
+             InventorySystem.Instance.AddToInventory(ItemName);
              InventorySystem.Instance.itemsPickedup.Add(gameObject.name);
              Destroy(gameObject);
+             
             }
             else
             {
                 Debug.Log("The inventory is full!");
             }
-            
-            
-            
         }
     }
+   
 }
