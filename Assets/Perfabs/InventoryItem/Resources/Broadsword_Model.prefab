@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4314195458473700278}
   - component: {fileID: 5390540407164630767}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Blade Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -63,7 +63,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3606902624567129523}
   - component: {fileID: 1214454696018336326}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Handle Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -116,7 +116,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5274296363225538526}
   - component: {fileID: 1157719985605226039}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cross Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -173,7 +173,9 @@ GameObject:
   - component: {fileID: 7461695832559864044}
   - component: {fileID: 638226437946417686}
   - component: {fileID: 6136539425889555833}
-  m_Layer: 0
+  - component: {fileID: 3722247694775740820}
+  - component: {fileID: 8227484463282970473}
+  m_Layer: 9
   m_Name: Broadsword_Model
   m_TagString: Pickable
   m_Icon: {fileID: 0}
@@ -304,3 +306,37 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.3229983, y: 1.6001849, z: 0.07995022}
   m_Center: {x: 0.016116977, y: 0.57596815, z: 0}
+--- !u!95 &3722247694775740820
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9000887980467315001}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a922b005dacfc744caa49a59ec03c4bd, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8227484463282970473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9000887980467315001}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d00b9ae2f3d160543bd4522de258c8e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 3722247694775740820}

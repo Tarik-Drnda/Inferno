@@ -122,9 +122,11 @@ public class EquipSystem : MonoBehaviour
     private void SetEquippedModel(GameObject selectedItem)
     {
        string selectedItemName = selectedItem.name.Replace("(Clone)", "");
-       itemModel = Instantiate(Resources.Load<GameObject>(selectedItemName + "_Model"), new Vector3(0.317f, 0.594f, 0.603f),Quaternion.Euler(-1.973f, 83.094f, 6.819f));
+       itemModel = Instantiate(Resources.Load<GameObject>(selectedItemName + "_Model"), new Vector3(0.317f, 0.594f, 0.603f),Quaternion.Euler(-1.973f, -83.094f, 6.819f));
        itemModel.transform.SetParent(toolHolder.transform,false);
        itemModel.GetComponent<BoxCollider>().enabled = false;
+       itemModel.GetComponent<Animator>().enabled = true;
+       itemModel.GetComponent<EquipableItem>().enabled = true;
     }
 
     private GameObject getSelectedItem(int slotNumber)

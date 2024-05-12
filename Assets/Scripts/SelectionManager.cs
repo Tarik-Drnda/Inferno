@@ -20,10 +20,7 @@ public class SelectionManager : MonoBehaviour
 
     public GameObject selectedObject;
 
-
-
- 
-
+    public bool pointerIsVisible=false;
     private void Start()
     {
         interaction_text = Interaction_Info_UI.GetComponent<Text>();
@@ -75,14 +72,16 @@ public class SelectionManager : MonoBehaviour
                     Pointer.SetActive(true);
                     Crosshair.SetActive(false);
                     Interaction_Info_UI.SetActive(true);
-               
+                    pointerIsVisible = true;
+
                 }
                 else
                 {
                     Pointer.SetActive(false);
                     Crosshair.SetActive(true);
                     Interaction_Info_UI.SetActive(false);
-                    
+                    pointerIsVisible = false;
+
                 }
                 hud.SetActive(true);
                 Interaction_Info_UI.SetActive(true);
@@ -94,6 +93,7 @@ public class SelectionManager : MonoBehaviour
                 Crosshair.SetActive(true);
                 hud.SetActive(false);
                 interaction_text.text = null;
+                pointerIsVisible = false;
             }
         }
         else
@@ -103,7 +103,7 @@ public class SelectionManager : MonoBehaviour
             
             Crosshair.SetActive(true);
             Pointer.SetActive(false);
-            
+            pointerIsVisible = false;
             hud.SetActive(false);
         }
     }
@@ -114,11 +114,13 @@ public class SelectionManager : MonoBehaviour
        Pointer.SetActive(false);
        Crosshair.SetActive(false);
         selectedObject = null;
+        pointerIsVisible = false;
     }
 
     public void EnableSelection()
     {
         Pointer.SetActive(true);
+        pointerIsVisible = true;
         selectedObject = null;
     }
 }
