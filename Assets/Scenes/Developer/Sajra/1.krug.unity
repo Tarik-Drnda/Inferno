@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.13476194, g: 0.14512818, b: 0.13700911, a: 1}
+  m_IndirectSpecularColor: {r: 0.38427144, g: 0.39645043, b: 0.38218296, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -98,7 +98,8 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_LightingSettings: {fileID: 0}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: af4ec5443e877de42b86a01f1a3c3a54,
+    type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -912,6 +913,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdd18bef15ae1a240a0fe02da6a695f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerInRange: 0
   ItemName: "Drve\u0107e"
 --- !u!1001 &162413968
 PrefabInstance:
@@ -1149,11 +1151,11 @@ Light:
   m_GameObject: {fileID: 162492512}
   m_Enabled: 1
   serializedVersion: 10
-  m_Type: 1
+  m_Type: 0
   m_Shape: 0
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_Intensity: 1
-  m_Range: 10
+  m_Range: 0.01
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -1164,7 +1166,7 @@ Light:
     m_Strength: 1
     m_Bias: 0.05
     m_NormalBias: 0.4
-    m_NearPlane: 0.2
+    m_NearPlane: 0.1
     m_CullingMatrixOverride:
       e00: 1
       e01: 0
@@ -1210,13 +1212,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 162492512}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalRotation: {x: 0.19943856, y: -0.8324551, z: 0.43760556, w: -0.27521673}
+  m_LocalPosition: {x: -42, y: 3, z: 25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 38.228, y: 126.341, z: -406.83002}
 --- !u!114 &162492515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2127,6 +2129,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 380480358}
   speed: 12
+  runSpeed: 18
   gravity: -19.62
   jumpHeight: 2
   groundCheck: {fileID: 876764914}
@@ -2739,6 +2742,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdd18bef15ae1a240a0fe02da6a695f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerInRange: 0
   ItemName: Drvo
 --- !u!1 &523013343
 GameObject:
@@ -3717,8 +3721,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70724ba4d9d8a6144845cf24742534b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interaction_Info_UI: {fileID: 1360951914}
+  onTarget: 0
+  Crosshair: {fileID: 0}
+  Pointer: {fileID: 0}
   hud: {fileID: 0}
+  item: {fileID: 0}
+  Interaction_Info_UI: {fileID: 0}
+  selectedObject: {fileID: 0}
+  pointerIsVisible: 0
 --- !u!4 &755309006
 Transform:
   m_ObjectHideFlags: 0
@@ -4368,6 +4378,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdd18bef15ae1a240a0fe02da6a695f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerInRange: 0
   ItemName: "Drve\u0107e"
 --- !u!1 &983589164
 GameObject:

@@ -32,7 +32,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-la        if (DialogSystem.Instance.dialogUIActive==false)
+ if (DialogSystem.Instance.dialogUIActive==false)
         {
             Movement();
         }
