@@ -21,9 +21,7 @@ public class PlayerState : MonoBehaviour
     private Vector3 lastPosition;
     public GameObject playerBody;    
     
-    //player hydration
-    public float currentHydrationPercent;
-    public float maxHydrationPercent;
+
 
     public bool isHydrationActive;
     public static PlayerState Instance { get; set; }
@@ -47,20 +45,11 @@ public class PlayerState : MonoBehaviour
     {
         currentHealth = maxHealth;
         currentCalories = maxCalories;
-        currentHydrationPercent = maxHydrationPercent;
 
-        StartCoroutine(decreaseHydration());
         
     }
 
-    IEnumerator decreaseHydration()
-    {
-        while (true)
-        {
-            currentHydrationPercent -= 1;
-            yield return new WaitForSeconds(2);
-        }
-    }
+   
 
     // Update is called once per frame
     void Update()
@@ -71,7 +60,10 @@ public class PlayerState : MonoBehaviour
 
         if (Input.GetKey(KeyCode.LeftShift) && currentCalories>0)
         {
-            InvokeRepeating("EnergyConsumption", 1.5f, 105f);
+
+            
+            InvokeRepeating("EnergyConsumption", 2f, 1f);
+
                 playerBody.GetComponent<PlayerMovement>().speed = 18f;
                 CancelInvoke("EnergyRegeneration");
         }
@@ -109,8 +101,5 @@ public class PlayerState : MonoBehaviour
         currentCalories = newCalories;
     }
 
-    public void setHydration(float newHydration)
-    {
-        currentHydrationPercent = newHydration;
-    }
+   
 }

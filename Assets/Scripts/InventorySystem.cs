@@ -85,7 +85,7 @@ public class InventorySystem : MonoBehaviour
             inventoryScreenUI.SetActive(false);
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
-            //ovdje je greska kod selectiona 
+            
             SelectionManager.Instance.EnableSelection();
             SelectionManager.Instance.GetComponent<SelectionManager>().enabled = true;
             isOpen = false;
@@ -95,10 +95,12 @@ public class InventorySystem : MonoBehaviour
 
     public void AddToInventory(string itemName)
     {
-       // if (SaveManager.Instance.isLoading == false)
-       // {
-            //muzika SoundManager.Instance.PlaySound(SoundManager.Instacne.pickItemSound);
-       // }
+        if (SaveManager.Instance.isLoading == false)
+        {
+            SoundManager.Instance.PlaySound(SoundManager.Instance.pickUpItem);
+        }
+           
+        
         
             whatSlotToEquip = FindNextEmptySlot();
             itemToAdd = Instantiate(Resources.Load<GameObject>(itemName),
@@ -138,7 +140,7 @@ public class InventorySystem : MonoBehaviour
         return new GameObject();
     }
 
-    public  bool CheckIfFull()
+    public  bool CheckSlotsAvailable()
     {
         int counter = 0;
         foreach (GameObject slot in slotList)
@@ -150,14 +152,14 @@ public class InventorySystem : MonoBehaviour
 
           
         }  
-        if (counter == 15)
+        if (counter == 15 )
         {
-            return true;
+            return false;
                          
         }
         else
         {
-            return false;
+            return true;
         }
     }
 

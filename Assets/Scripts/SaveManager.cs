@@ -330,7 +330,7 @@ public class SaveManager : MonoBehaviour
     {
         if (isSavnigJason)
         {
-            if (System.IO.File.Exists(jsonPathProject+ fileName + slotNumber +".json"))//SaveGame1.json
+            if (File.Exists(jsonPathProject+ fileName + slotNumber +".json"))//SaveGame1.json
             {
                 return true;
             }
@@ -342,7 +342,7 @@ public class SaveManager : MonoBehaviour
         }
         else
         {
-            if (System.IO.File.Exists(binaryPath + fileName + slotNumber +".bin"))
+            if (File.Exists(binaryPath + fileName + slotNumber +".bin"))
             {
                 return true;
             }

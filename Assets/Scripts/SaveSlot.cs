@@ -1,7 +1,4 @@
-
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -22,7 +19,6 @@ public class SaveSlot : MonoBehaviour
    {
       button = GetComponent<Button>();
       buttonText = transform.Find("Text (TMP)").GetComponent<TextMeshProUGUI>();
-
       yesBTN = alertUI.transform.Find("YesButton").GetComponent<Button>();
       noBTN = alertUI.transform.Find("NoButton").GetComponent<Button>();
    }
@@ -33,7 +29,6 @@ public class SaveSlot : MonoBehaviour
             {
                if (SaveManager.Instance.IsSlotEmpty(slotNumber))
                {
-                  
                   SaveGameConfirmed();
                }
                else
@@ -49,7 +44,6 @@ public class SaveSlot : MonoBehaviour
          if (SaveManager.Instance.IsSlotEmpty(slotNumber))
          {
             buttonText.text = "Empty";
-            
          }
          else
          {

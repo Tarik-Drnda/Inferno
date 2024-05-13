@@ -18,9 +18,7 @@ public class HydrationBar : MonoBehaviour
 
     void Update()
     {
-        currentHydration = playerState.GetComponent<PlayerState>().currentHydrationPercent;
-        maxHydration = playerState.GetComponent<PlayerState>().maxHydrationPercent;
-
+       
         float fillValue = currentHydration / maxHydration;
         slider.value = fillValue;
 

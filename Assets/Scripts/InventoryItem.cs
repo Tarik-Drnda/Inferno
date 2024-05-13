@@ -109,7 +109,7 @@ public class InventoryItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
  
         caloriesEffectCalculation(caloriesEffect);
  
-        hydrationEffectCalculation(hydrationEffect);
+        
  
     }
  
@@ -156,26 +156,7 @@ public class InventoryItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     }
  
  
-    private static void hydrationEffectCalculation(float hydrationEffect)
-    {
-        // --- Hydration --- //
- 
-        float hydrationBeforeConsumption = PlayerState.Instance.currentHydrationPercent;
-        float maxHydration = PlayerState.Instance.maxHydrationPercent;
- 
-        if (hydrationEffect != 0)
-        {
-            if ((hydrationBeforeConsumption + hydrationEffect) > maxHydration)
-            {
-                PlayerState.Instance.setHydration(maxHydration);
-            }
-            else
-            {
-                PlayerState.Instance.setHydration(hydrationBeforeConsumption + hydrationEffect);
-            }
-        }
-    }
- 
+    
  
 }
  

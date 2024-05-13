@@ -13,12 +13,13 @@ public class MouseMovement : MonoBehaviour
     {
         //Locking the cursor to the middle of the screen and making it invisible
         Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     void Update()
     {
 
-        if (!InventorySystem.Instance.isOpen && !MenuManager.Instance.isMenuOpen)
+        if (!InventorySystem.Instance.isOpen && !MenuManager.Instance.isMenuOpen && !DialogSystem.Instance.dialogUIActive)
 
         {
             float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;

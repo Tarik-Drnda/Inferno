@@ -47,16 +47,73 @@ public class SelectionManager : MonoBehaviour
         RaycastHit hit;
 
         bool isHit = Physics.Raycast(ray, out hit);
-       
+
 
         if (isHit)
         {
-            
+
             var selectionTransform = hit.transform;
             InteractableObject interactable = selectionTransform.GetComponent<InteractableObject>();
-            
             item = hit.transform.gameObject;
 
+            NPC npc = selectionTransform.GetComponent<NPC>();
+           SecondNPC nps2 = selectionTransform.GetComponent<SecondNPC>();
+           if (nps2 && nps2.playerInRange)
+           {
+               interaction_text.text = "Talk"; 
+               Interaction_Info_UI.SetActive(true);
+                
+               if (Input.GetMouseButtonDown(0) && nps2.isTalkingWithPlayer2 == false)
+               {
+                   nps2.StartConversation();
+                    
+               }
+              
+
+               if (DialogSystem.Instance.dialogUIActive)
+               {
+                   Interaction_Info_UI.SetActive(false);
+                   Crosshair.SetActive(false);
+                   Cursor.visible = false;
+
+               }
+           }
+        
+           else
+           {
+               interaction_text.text = "";
+               Interaction_Info_UI.SetActive(false);
+           }
+           
+           
+           
+            if (npc && npc.playerInRange)
+            {
+                interaction_text.text = "Talk"; 
+                Interaction_Info_UI.SetActive(true);
+                
+                if (Input.GetMouseButtonDown(0) && npc.isTalkingWithPlayer == false)
+                {
+                    npc.StartConversation();
+                    
+                }
+              
+
+                if (DialogSystem.Instance.dialogUIActive)
+                {
+                    Interaction_Info_UI.SetActive(false);
+                    Crosshair.SetActive(false);
+                    Cursor.visible = false;
+
+                }
+            }
+        
+            else
+            {
+                interaction_text.text = "";
+                Interaction_Info_UI.SetActive(false);
+            }
+            
 
             if (selectionTransform.GetComponent<InteractableObject>() && selectionTransform.GetComponent<InteractableObject>().playerInRange==true)
             {
@@ -89,7 +146,7 @@ public class SelectionManager : MonoBehaviour
             }
             else
             {
-                Pointer.SetActive(false);
+               Pointer.SetActive(false);
                 Crosshair.SetActive(true);
                 hud.SetActive(false);
                 interaction_text.text = null;
@@ -99,8 +156,7 @@ public class SelectionManager : MonoBehaviour
         else
         {
             onTarget = true;
-            Interaction_Info_UI.SetActive(false);
-            
+           Interaction_Info_UI.SetActive(false);
             Crosshair.SetActive(true);
             Pointer.SetActive(false);
             pointerIsVisible = false;

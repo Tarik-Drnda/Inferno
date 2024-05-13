@@ -2208,7 +2208,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 597e6e59d206a9c41a8810fe1039bb68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LoadGameBTN: {fileID: 0}
+  LoadGameBTN: {fileID: 414167510}
 --- !u!1 &870324994
 GameObject:
   m_ObjectHideFlags: 0
@@ -2990,7 +2990,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 597e6e59d206a9c41a8810fe1039bb68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LoadGameBTN: {fileID: 0}
+  LoadGameBTN: {fileID: 414167510}
 --- !u!1 &1175012566
 GameObject:
   m_ObjectHideFlags: 0
