@@ -31,6 +31,7 @@ public class MenuManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.M) && !isMenuOpen)
         {
+           
             UICanvas.SetActive(false);
             menuCanvas.SetActive(true);
             isMenuOpen = true;
@@ -46,7 +47,7 @@ public class MenuManager : MonoBehaviour
             saveMenu.SetActive(false);
             settingsMenu.SetActive(false);
             menu.SetActive(true);
-            
+           
             UICanvas.SetActive(true);
             menuCanvas.SetActive(false);
             isMenuOpen = false;

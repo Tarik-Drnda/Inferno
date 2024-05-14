@@ -10,8 +10,10 @@ public class MainMenu : MonoBehaviour
  
 
     public void NewGame()
-    {
+    { 
+        
         SceneManager.LoadScene("0.krug");
+   
     }
 
     // Update is called once per frame

@@ -10,6 +10,7 @@ public class NPC : MonoBehaviour
 
     private int currentDialogueIndex = 0;
     private string[] dialogues;
+    
     private AudioSource[] dialogueAudioSources;
     Animator animator;
 

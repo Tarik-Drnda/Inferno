@@ -34,18 +34,52 @@ public class SettingsManager : MonoBehaviour
 
     private void Start()
     {
+        
+        masterSlider.onValueChanged.AddListener(UpdateMasterVolume);
+        musicSlider.onValueChanged.AddListener(UpdateMusicVolume);
+        effectsSlider.onValueChanged.AddListener(UpdateEffectsVolume);
+        
+        
         backBTN.onClick.AddListener(() =>
         {
             SaveManager.Instance.SaveVolumeSetings(musicSlider.value, effectsSlider.value, masterSlider.value);
             print("Saved to Player Pref");
         });
-        StartCoroutine(LoadAndApplySettings());
+
+        if (SaveManager.Instance.isLoading == true)
+        {
+             StartCoroutine(LoadAndApplySettings());
+        }
+       
 
     }
-
+    private void UpdateMasterVolume(float volume)
+    {
+        SoundManager.Instance.startingZoneBGMusic.volume = volume;
+        SoundManager.Instance.walkingSound.volume = volume;
+        SoundManager.Instance.runningSound.volume = volume;
+        SoundManager.Instance.dropItemSound.volume = volume;
+        SoundManager.Instance.pickUpItem.volume = volume;
+        SoundManager.Instance.jumpingSound.volume = volume;
+    }
+    private void UpdateMusicVolume(float volume)
+    {
+       
+        SoundManager.Instance.startingZoneBGMusic.volume = volume;
+    }
+    
+    private void UpdateEffectsVolume(float volume)
+    {
+        SoundManager.Instance.walkingSound.volume = volume;
+        SoundManager.Instance.runningSound.volume = volume;
+        SoundManager.Instance.dropItemSound.volume = volume;
+        SoundManager.Instance.pickUpItem.volume = volume;
+        SoundManager.Instance.jumpingSound.volume = volume;
+    }
+    
     private IEnumerator LoadAndApplySettings()
     {
-       // LoadAndSetVolume();
+        LoadAndSetVolume();
         yield return new WaitForSeconds(0.1f);
     }
 
@@ -62,7 +96,6 @@ public class SettingsManager : MonoBehaviour
     private void Update()
     {
         masterValue.GetComponent<TextMeshProUGUI>().text = "" + (masterSlider.value) + "";
-        
         musicValue.GetComponent<TextMeshProUGUI>().text = "" + (musicSlider.value) + "";
         effectsValue.GetComponent<TextMeshProUGUI>().text = "" + (effectsSlider.value) + "";
     }

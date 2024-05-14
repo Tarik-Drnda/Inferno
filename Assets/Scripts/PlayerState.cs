@@ -54,7 +54,7 @@ public class PlayerState : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+       
         distanceTraveled += Vector3.Distance(playerBody.transform.position, lastPosition);
         lastPosition = playerBody.transform.position;
 
@@ -77,6 +77,11 @@ public class PlayerState : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.N))
         {
             currentHealth -= 10;
+        }
+        
+        if (currentHealth <= 0)
+        {
+            GameOverManager.Instance.ShowDeathCanvas(); // Pokrenite prikaz canvasa smrti
         }
     }
 

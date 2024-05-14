@@ -14,10 +14,10 @@ public class SecondNPC : MonoBehaviour
     private AudioSource[] dialogueAudioSources;
     Animator animator;
 
- /*   public AudioSource dialog1Audio;
+     public AudioSource dialog1Audio;
     public AudioSource dialog2Audio;
     public AudioSource dialog3Audio;
-    public AudioSource dialog4Audio;*/
+    public AudioSource dialog4Audio;
 
     private void Start()
     {
@@ -31,13 +31,13 @@ public class SecondNPC : MonoBehaviour
           
         };
 
-      /*  dialogueAudioSources = new AudioSource[]
+       dialogueAudioSources = new AudioSource[]
         {
             dialog1Audio,
             dialog2Audio,
             dialog3Audio,
             dialog4Audio,
-        };*/
+        };
     }
 
  
@@ -46,6 +46,7 @@ public class SecondNPC : MonoBehaviour
     {
         if (isTalkingWithPlayer2)
         {
+            animator.SetBool("isTalking",true);
             if (Input.GetKeyDown(KeyCode.Q))
             {
                 NextDialogue();
@@ -65,7 +66,7 @@ public class SecondNPC : MonoBehaviour
 
     void NextDialogue()
     {
-        //StopCurrentDialogueAudio();
+        StopCurrentDialogueAudio();
 
         currentDialogueIndex++;
 
@@ -79,11 +80,24 @@ public class SecondNPC : MonoBehaviour
         }
     }
 
+    private void StopCurrentDialogueAudio()
+    {
+        if (currentDialogueIndex >= 0 && currentDialogueIndex < dialogueAudioSources.Length)
+        {
+            dialogueAudioSources[currentDialogueIndex].Stop();
+        }
+    }
+
     void ShowCurrentDialogue()
     {
-        DialogSystem.Instance.dialogText.text = dialogues[currentDialogueIndex] + "\nPress Q to continue";
+        DialogSystem.Instance.dialogText.text = dialogues[currentDialogueIndex] + "\nPress Q to go next";
 
-        // Dodajte logiku za reprodukciju zvuka dijaloga ako je potrebno
+        if (currentDialogueIndex < dialogueAudioSources.Length)
+        {
+            dialogueAudioSources[currentDialogueIndex].Play();
+        }
+
+    
     }
 
     void CloseConversation()
@@ -104,10 +118,7 @@ public class SecondNPC : MonoBehaviour
         transform.rotation = Quaternion.Euler(0, yRotation, 0);
     }
 
-    /*void StopCurrentDialogueAudio()
-    {
-        // Dodajte logiku za zaustavljanje zvuka dijaloga ako je potrebno
-    }*/
+ 
 
     private void OnTriggerEnter(Collider other)
     {

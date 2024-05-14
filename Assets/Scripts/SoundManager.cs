@@ -7,10 +7,10 @@ public class SoundManager : MonoBehaviour
     public static SoundManager Instance { get; set; }
     public AudioSource dropItemSound;
     public AudioSource pickUpItem;
-    public AudioSource swingSound;
     public AudioSource walkingSound;
     public AudioSource jumpingSound;
     public AudioSource runningSound;
+    public AudioSource menuSound;
 
     public AudioSource startingZoneBGMusic;
     
