@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 9102829134798921150}
   - component: {fileID: 8906510520366318220}
   - component: {fileID: -2837877310387364628}
+  - component: {fileID: 9203903160477699729}
   m_Layer: 5
   m_Name: Katana
   m_TagString: Untagged
@@ -126,3 +127,16 @@ MonoBehaviour:
   isEquippable: 1
   isUnsideQuickSlot: 0
   isSelected: 0
+--- !u!114 &9203903160477699729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 759696767717129390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e8e9474599b8d844886baf05c06a7b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponDamage: 10

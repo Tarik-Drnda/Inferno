@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4746362882235136086}
   - component: {fileID: 7146988164693632880}
   - component: {fileID: -456909154133176911}
+  - component: {fileID: -7508863596506917239}
   m_Layer: 5
   m_Name: Sabre
   m_TagString: Untagged
@@ -125,3 +126,16 @@ MonoBehaviour:
   isEquippable: 1
   isUnsideQuickSlot: 0
   isSelected: 0
+--- !u!114 &-7508863596506917239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8056048536733196949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e8e9474599b8d844886baf05c06a7b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponDamage: 10

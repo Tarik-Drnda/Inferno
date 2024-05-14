@@ -21,6 +21,8 @@ public class SelectionManager : MonoBehaviour
     public GameObject selectedObject;
 
     public bool pointerIsVisible=false;
+    
+    
     private void Start()
     {
         interaction_text = Interaction_Info_UI.GetComponent<Text>();
@@ -55,18 +57,19 @@ public class SelectionManager : MonoBehaviour
             var selectionTransform = hit.transform;
             InteractableObject interactable = selectionTransform.GetComponent<InteractableObject>();
             item = hit.transform.gameObject;
-
+            EnemyAI enemy = selectionTransform.GetComponent<EnemyAI>();
+            
             NPC npc = selectionTransform.GetComponent<NPC>();
            SecondNPC nps2 = selectionTransform.GetComponent<SecondNPC>();
            if (nps2 && nps2.playerInRange)
            {
-               interaction_text.text = "Talk"; 
                Interaction_Info_UI.SetActive(true);
-                
+               interaction_text.text = "Talk"; 
+               hud.SetActive(true); 
+               
                if (Input.GetMouseButtonDown(0) && nps2.isTalkingWithPlayer2 == false)
                {
                    nps2.StartConversation();
-                    
                }
               
 
@@ -78,20 +81,12 @@ public class SelectionManager : MonoBehaviour
 
                }
            }
-        
-           else
-           {
-               interaction_text.text = "";
-               Interaction_Info_UI.SetActive(false);
-           }
-           
-           
-           
-            if (npc && npc.playerInRange)
+
+           else if (npc && npc.playerInRange)
             {
-                interaction_text.text = "Talk"; 
                 Interaction_Info_UI.SetActive(true);
-                
+                interaction_text.text = "Talk"; 
+                hud.SetActive(true); 
                 if (Input.GetMouseButtonDown(0) && npc.isTalkingWithPlayer == false)
                 {
                     npc.StartConversation();
@@ -107,15 +102,8 @@ public class SelectionManager : MonoBehaviour
 
                 }
             }
-        
-            else
-            {
-                interaction_text.text = "";
-                Interaction_Info_UI.SetActive(false);
-            }
             
-
-            if (selectionTransform.GetComponent<InteractableObject>() && selectionTransform.GetComponent<InteractableObject>().playerInRange==true)
+           else if (selectionTransform.GetComponent<InteractableObject>() && selectionTransform.GetComponent<InteractableObject>().playerInRange==true)
             {
                 isInteractableInRange = true;
                 interaction_text.text = item.GetComponent<InteractableObject>().GetItemName();
@@ -144,14 +132,27 @@ public class SelectionManager : MonoBehaviour
                 Interaction_Info_UI.SetActive(true);
              
             }
+           
+           
+            else if (enemy!=null && enemy.playerInRange == true)
+            {
+                Interaction_Info_UI.SetActive(true);
+                interaction_text.text = enemy.enemyName;
+                hud.SetActive(true);
+                if (Input.GetMouseButtonDown(0) && EquipSystem.Instance.IsHoldingWeapon())
+                {
+                    StartCoroutine(DealDamageTo(enemy, 0.3f, EquipSystem.Instance.GetWeaponDamage()));
+                }
+            }
             else
             {
-               Pointer.SetActive(false);
+                Pointer.SetActive(false);
                 Crosshair.SetActive(true);
                 hud.SetActive(false);
-                interaction_text.text = null;
+                interaction_text.text = "";
                 pointerIsVisible = false;
             }
+
         }
         else
         {
@@ -162,6 +163,14 @@ public class SelectionManager : MonoBehaviour
             pointerIsVisible = false;
             hud.SetActive(false);
         }
+        
+    }
+
+    IEnumerator DealDamageTo(EnemyAI enemy, float delay, int damage)
+    {
+        yield return new WaitForSeconds(delay);
+        enemy.TakeDamage(damage);
+        
     }
 
 

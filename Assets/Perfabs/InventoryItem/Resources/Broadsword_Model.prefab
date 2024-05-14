@@ -175,6 +175,7 @@ GameObject:
   - component: {fileID: 6136539425889555833}
   - component: {fileID: 3722247694775740820}
   - component: {fileID: 8227484463282970473}
+  - component: {fileID: 5274995143841144861}
   m_Layer: 9
   m_Name: Broadsword_Model
   m_TagString: Pickable
@@ -340,3 +341,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 3722247694775740820}
+--- !u!114 &5274995143841144861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9000887980467315001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e8e9474599b8d844886baf05c06a7b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponDamage: 10

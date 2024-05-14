@@ -31,17 +31,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 3a16ab656187cdb43836519ff75dd790,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.099905
+      value: 10.035024
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3a16ab656187cdb43836519ff75dd790,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.0000009536743
+      value: -0.0000019073486
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3a16ab656187cdb43836519ff75dd790,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 33.40633
+      value: 21.932829
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3a16ab656187cdb43836519ff75dd790,
         type: 3}
@@ -98,6 +98,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7131825317582509665, guid: 3a16ab656187cdb43836519ff75dd790,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: dc69ee64ce8d20540aec715742be3e92, type: 2}
     - target: {fileID: -7121769801107515815, guid: 3a16ab656187cdb43836519ff75dd790,
         type: 3}
       propertyPath: m_Layer
@@ -265,7 +270,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 3a16ab656187cdb43836519ff75dd790,
         type: 3}
       propertyPath: m_Name
-      value: Icon_of_sin
+      value: Icon_of_sin_Finished
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3a16ab656187cdb43836519ff75dd790,
         type: 3}
@@ -428,6 +433,14 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 5576759535394435867}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 3a16ab656187cdb43836519ff75dd790,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5160758013995128502}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 3a16ab656187cdb43836519ff75dd790,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2545783998170717573}
   m_SourcePrefab: {fileID: 100100000, guid: 3a16ab656187cdb43836519ff75dd790, type: 3}
 --- !u!1 &1194060269054176301 stripped
 GameObject:
@@ -449,6 +462,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 0}
   wantedDistance: 40
+  bloodScreen: {fileID: 0}
+  enemyName: Heavy demon
+  playerInRange: 0
+  currentHealth: 0
+  maxHealth: 40
 --- !u!95 &7228854323138759222
 Animator:
   serializedVersion: 5
@@ -492,3 +510,45 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!65 &5160758013995128502
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1194060269054176301}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.19999997, y: 0.19295795, z: 0.19999997}
+  m_Center: {x: 0, y: 0.0035209893, z: 0}
+--- !u!65 &2545783998170717573
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1194060269054176301}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.03, y: 0.0776839, z: 0.023834877}
+  m_Center: {x: 0, y: 0.046047285, z: 0.0019174385}

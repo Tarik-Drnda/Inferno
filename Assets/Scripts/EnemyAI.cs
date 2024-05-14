@@ -1,4 +1,5 @@
 using System.Collections;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -14,12 +15,21 @@ public class EnemyAI : MonoBehaviour
     public GameObject bloodScreen;
 
     private bool canAttack = true; // Flag to control whether the enemy can attack
+    
+    //-Enemy information-//
+    public string enemyName;
+    public bool playerInRange;
 
+    public int currentHealth;
+    public int maxHealth;
+
+    private GameObject _bloodGO;
+    
     void Start()
     {
         _agent = GetComponent<NavMeshAgent>();
         _animator = GetComponent<Animator>();
-        
+        currentHealth = maxHealth;
     }
 
     void Update()
@@ -27,20 +37,19 @@ public class EnemyAI : MonoBehaviour
         _animator.SetFloat("Speed", _agent.velocity.magnitude);
         distanceToPlayer = Vector3.Distance(_agent.transform.position, playerTransform.position);
         Debug.Log(distanceToPlayer);
-
+        
         if (distanceToPlayer < wantedDistance)
         {
             _agent.destination = playerTransform.position;
             SoundManager.Instance.PlaySound(SoundManager.Instance.walkingSound);
 
-            if (distanceToPlayer <= 3f && canAttack)
+            if (distanceToPlayer <= 4f && canAttack)
             {
                 // Start the coroutine to delay the Attack function call
                 StartCoroutine(AttackAfterDelay());
-                
             }
-           
         }
+     
     }
 
     private IEnumerator AttackAfterDelay()
@@ -55,7 +64,7 @@ public class EnemyAI : MonoBehaviour
 
         // Call the Attack function
         Attack();
-        
+
         // Reset canAttack after the attack
         canAttack = true;
     }
@@ -76,7 +85,8 @@ public class EnemyAI : MonoBehaviour
             bloodScreen.SetActive(false);
         }
            
-        _animator.SetTrigger("isAttacking");
+       _animator.SetTrigger("isAttacking");
+        
     }
 
     private IEnumerator PlayAfterDelay()
@@ -86,4 +96,45 @@ public class EnemyAI : MonoBehaviour
         SoundManager.Instance.PlaySound(SoundManager.Instance.enemyHit);
         bloodScreen.SetActive(true);
     }
+
+    public void TakeDamage(int damage)
+    {
+        Destroy(_bloodGO);
+        currentHealth -= damage;
+       
+        if (currentHealth <= 0)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            _bloodGO=  Instantiate(Resources.Load<GameObject>("FX_ROOT"), this.transform.position, this.transform.rotation);
+            _bloodGO.transform.SetParent(this.transform);
+            _bloodGO.SetActive(true);
+            StartCoroutine(BloodFX());
+        }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            playerInRange = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            playerInRange = false;
+        }
+    }
+  
+    private IEnumerator BloodFX()
+    {
+        yield return new WaitForSeconds(1f);
+        _bloodGO.SetActive(false);
+        Destroy(_bloodGO);
+    }
+
 }
