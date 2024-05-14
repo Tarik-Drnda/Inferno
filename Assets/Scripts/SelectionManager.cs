@@ -20,8 +20,8 @@ public class SelectionManager : MonoBehaviour
 
     public GameObject selectedObject;
 
-    public bool pointerIsVisible=false;
-    
+    public bool pointerIsVisible;
+    public bool inInteraction;
     
     private void Start()
     {
@@ -70,6 +70,7 @@ public class SelectionManager : MonoBehaviour
                if (Input.GetMouseButtonDown(0) && nps2.isTalkingWithPlayer2 == false)
                {
                    nps2.StartConversation();
+                   inInteraction = true;
                }
               
 
@@ -90,9 +91,9 @@ public class SelectionManager : MonoBehaviour
                 if (Input.GetMouseButtonDown(0) && npc.isTalkingWithPlayer == false)
                 {
                     npc.StartConversation();
-                    
+                    inInteraction = true;
                 }
-              
+               
 
                 if (DialogSystem.Instance.dialogUIActive)
                 {
@@ -110,7 +111,7 @@ public class SelectionManager : MonoBehaviour
                              
                 onTarget = true;
                 selectedObject = interactable.gameObject;
-
+                inInteraction = false;
 
                 if (selectedObject.CompareTag("Pickable"))
                 {
@@ -136,6 +137,7 @@ public class SelectionManager : MonoBehaviour
            
             else if (enemy!=null && enemy.playerInRange == true)
             {
+                inInteraction = false;
                 Interaction_Info_UI.SetActive(true);
                 interaction_text.text = enemy.enemyName;
                 hud.SetActive(true);
@@ -156,6 +158,7 @@ public class SelectionManager : MonoBehaviour
         }
         else
         {
+            inInteraction = false;
             onTarget = true;
            Interaction_Info_UI.SetActive(false);
             Crosshair.SetActive(true);

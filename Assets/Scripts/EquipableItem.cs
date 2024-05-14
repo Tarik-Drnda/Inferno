@@ -18,7 +18,7 @@ public class EquipableItem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.Mouse0) && InventorySystem.Instance.isOpen==false && playerObject.GetComponent<SelectionManager>().pointerIsVisible==false )
+        if (Input.GetKey(KeyCode.Mouse0) && InventorySystem.Instance.isOpen==false && SelectionManager.Instance.pointerIsVisible==false && SelectionManager.Instance.inInteraction==false)
         {
             animator.SetTrigger("hit");
             
