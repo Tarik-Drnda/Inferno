@@ -19,7 +19,8 @@ public class EnemyAI : MonoBehaviour
     //-Enemy information-//
     public string enemyName;
     public bool playerInRange;
-
+    private bool _isDead=false;
+    
     public int currentHealth;
     public int maxHealth;
 
@@ -43,7 +44,7 @@ public class EnemyAI : MonoBehaviour
             _agent.destination = playerTransform.position;
             SoundManager.Instance.PlaySound(SoundManager.Instance.walkingSound);
 
-            if (distanceToPlayer <= 4f && canAttack)
+            if (distanceToPlayer <= 4f && canAttack && _isDead == false) 
             {
                 // Start the coroutine to delay the Attack function call
                 StartCoroutine(AttackAfterDelay());
@@ -104,7 +105,11 @@ public class EnemyAI : MonoBehaviour
        
         if (currentHealth <= 0)
         {
-            Destroy(gameObject);
+            _animator.SetTrigger("isDead");
+            this.GetComponent<NavMeshAgent>().enabled = false;
+            _isDead = true;
+            this.GetComponent<Collider>().enabled = false;
+
         }
         else
         {
