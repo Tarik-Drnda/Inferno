@@ -19,6 +19,19 @@ public class SecondNPC : MonoBehaviour
     public AudioSource dialog3Audio;
     public AudioSource dialog4Audio;
 
+    public bool complitedDialog;
+    public static SecondNPC Instance;
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            Instance = this;
+        }
+    }
     private void Start()
     {
         animator = GetComponent<Animator>();
@@ -106,6 +119,7 @@ public class SecondNPC : MonoBehaviour
         isTalkingWithPlayer2 = false;
         currentDialogueIndex = 0;
         animator.SetBool("isTalking", false);
+        complitedDialog = true;
     }
 
     public void LookAtPlayer()

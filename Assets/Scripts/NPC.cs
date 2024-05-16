@@ -20,6 +20,19 @@ public class NPC : MonoBehaviour
     public AudioSource dialog4Audio;
     public AudioSource dialog5Audio;
 
+    public bool ComplitedDialog;
+    public static NPC Instance;
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            Instance = this;
+        }
+    }
     private void Start()
     {
         animator = GetComponent<Animator>();
@@ -107,6 +120,7 @@ public void LookAtPlayer()
         isTalkingWithPlayer = false;
         currentDialogueIndex = 0;
         animator.SetBool("isTalking",false);
+        ComplitedDialog = true;
 
     }
 

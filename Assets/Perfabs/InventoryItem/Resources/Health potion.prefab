@@ -14,8 +14,9 @@ GameObject:
   - component: {fileID: -8008667552448839774}
   - component: {fileID: 8933555449310386133}
   - component: {fileID: 391276450933803786}
+  - component: {fileID: -4621014970717671035}
   m_Layer: 5
-  m_Name: Potion3
+  m_Name: Health potion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -114,7 +115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f25d88c10980b9a44aabc51f91e1ca12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTrashable: 0
+  isTrashable: 1
   thisName: Hellfire Tonic
   thisDescription: Ignite your vitality with a surge of 30 health, fueled by the
     flames of the underworld.
@@ -123,6 +124,18 @@ MonoBehaviour:
   healthEffect: 30
   caloriesEffect: 0
   hydrationEffect: 0
-  isEquippable: 0
+  isEquippable: 1
   isUnsideQuickSlot: 0
   isSelected: 0
+--- !u!114 &-4621014970717671035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7865996177611495726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e4c7c21a4ee7804e9d52913abf466e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
