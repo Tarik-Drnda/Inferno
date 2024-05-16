@@ -11,8 +11,11 @@ public class SoundManager : MonoBehaviour
     public AudioSource jumpingSound;
     public AudioSource runningSound;
     public AudioSource menuSound;
+    public AudioSource swingSound;
+    public AudioSource enemySound;
 
     public AudioSource startingZoneBGMusic;
+    public AudioSource BGMusic;
     
     //Enemys
     public AudioSource enemyHit;

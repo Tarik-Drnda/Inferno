@@ -117,6 +117,7 @@ public class EnemyAI : MonoBehaviour
             _bloodGO.transform.SetParent(this.transform);
             _bloodGO.SetActive(true);
             StartCoroutine(BloodFX());
+            SoundManager.Instance.PlaySound(SoundManager.Instance.enemySound);
         }
     }
     private void OnTriggerEnter(Collider other)

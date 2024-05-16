@@ -174,6 +174,7 @@ public class SelectionManager : MonoBehaviour
         yield return new WaitForSeconds(delay);
         enemy.TakeDamage(damage);
         
+        
     }
 
 

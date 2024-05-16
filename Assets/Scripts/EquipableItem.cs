@@ -21,6 +21,7 @@ public class EquipableItem : MonoBehaviour
         if (Input.GetKey(KeyCode.Mouse0) && InventorySystem.Instance.isOpen==false && SelectionManager.Instance.pointerIsVisible==false && SelectionManager.Instance.inInteraction==false)
         {
             animator.SetTrigger("hit");
+            SoundManager.Instance.PlaySound(SoundManager.Instance.swingSound);
             
         }
     }
