@@ -60,17 +60,13 @@ public class PlayerState : MonoBehaviour
 
         if (Input.GetKey(KeyCode.LeftShift) && currentCalories>0)
         {
-
-            
-            InvokeRepeating("EnergyConsumption", 2f, 1f);
-
-                playerBody.GetComponent<PlayerMovement>().speed = 18f;
-                CancelInvoke("EnergyRegeneration");
+            StartCoroutine(SpendEnergy());
+            playerBody.GetComponent<PlayerMovement>().speed = 18f;
         }
         else
         {
-            CancelInvoke("EnergyConsumption");
-            InvokeRepeating("EnergyRegeneration",5,105f);
+            if(currentCalories<100)
+                StartCoroutine(RestoreEnergy());
             playerBody.GetComponent<PlayerMovement>().speed = 12f;
         }
         
@@ -106,5 +102,14 @@ public class PlayerState : MonoBehaviour
         currentCalories = newCalories;
     }
 
-   
+   public IEnumerator SpendEnergy()
+   {
+       yield return new WaitForSeconds(1f);
+       EnergyConsumption();
+   }
+   public IEnumerator RestoreEnergy()
+   {
+       yield return new WaitForSeconds(2f);
+       EnergyRegeneration();
+   }
 }

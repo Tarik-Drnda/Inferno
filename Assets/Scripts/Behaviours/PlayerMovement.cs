@@ -12,8 +12,8 @@ public class PlayerMovement : MonoBehaviour
     public float gravity = -9.81f * 2;
     public float jumpHeight = 3f;
 
-    public Transform groundCheck; //Provjerava da li je na zemlji
-    public float groundDistance = 0.4f; //Provjerava udaljenost igraca od zemlje
+    public Transform groundCheck; // Checks if on ground
+    public float groundDistance = 0.4f; // Distance to ground
     public LayerMask groundMask;
     
     Vector3 velocity;
@@ -21,8 +21,14 @@ public class PlayerMovement : MonoBehaviour
     private bool isMoving;
     private bool isRunning;
     bool isGrounded;
-    
+
     private AudioSource audioSource;
+
+    public float maxSlopeAngle = 45f; // Maximum angle the player can walk on
+
+    private float lastGroundedY; // The y-position when last grounded
+    public float fallDamageThreshold = 5f; // The threshold for taking fall damage
+    public float damageMultiplier = 2f; // Multiplier for calculating fall damage
 
     private void Start()
     {
@@ -32,15 +38,16 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       if (DialogSystem.Instance.dialogUIActive==false)
+        if (DialogSystem.Instance.dialogUIActive == false)
         {
             Movement();
         }
-        
     }
-public void Movement()
+
+    public void Movement()
     {
-        //checking if we hit the ground to reset our falling velocity, otherwise we will fall faster the next time
+        // Check if grounded
+        bool wasGrounded = isGrounded;
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
         if (isGrounded && velocity.y < 0)
@@ -48,39 +55,79 @@ public void Movement()
             velocity.y = -2f;
         }
 
+        // Calculate fall damage if player just landed
+        if (!wasGrounded && isGrounded)
+        {
+            float fallDistance = lastGroundedY - transform.position.y;
+            if (fallDistance > fallDamageThreshold)
+            {
+                ApplyFallDamage(fallDistance);
+            }
+        }
+
+        if (isGrounded)
+        {
+            lastGroundedY = transform.position.y; // Update last grounded y-position
+        }
+
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
 
-        //right is the red Axis, foward is the blue axis
         Vector3 move = transform.right * x + transform.forward * z;
 
-        controller.Move(move * speed * Time.deltaTime);
+        // Handle slope detection and movement
+        if (IsOnSlope(out RaycastHit slopeHit))
+        {
+            float slopeAngle = Vector3.Angle(Vector3.up, slopeHit.normal);
+            Debug.Log("Slope angle: " + slopeAngle);
 
-        //check if the player is on the ground so he can jump
+            if (slopeAngle > maxSlopeAngle)
+            {
+                // Slide down the slope
+                Vector3 slideDirection = Vector3.ProjectOnPlane(move, slopeHit.normal).normalized;
+                controller.Move(slideDirection * speed * Time.deltaTime);
+                Debug.Log("Sliding down slope.");
+            }
+            else
+            {
+                // Normal movement
+                controller.Move(move * speed * Time.deltaTime);
+                Debug.Log("Moving normally on slope.");
+            }
+        }
+        else
+        {
+            // Normal movement
+            controller.Move(move * speed * Time.deltaTime);
+            Debug.Log("Moving normally.");
+        }
+
+        // Jumping
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
-            //the equation for jumping
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
             SoundManager.Instance.PlaySound(SoundManager.Instance.jumpingSound);
         }
 
+        // Running
         if (Input.GetKey(KeyCode.LeftShift) && isGrounded && PlayerState.Instance.currentCalories > 0)
         {
             isRunning = true;
             SoundManager.Instance.PlaySound(SoundManager.Instance.runningSound);
-            PlayerState.Instance.playerBody.GetComponent<PlayerMovement>().speed = 18f;
+            speed = runSpeed;
         }
         else
         {
             isRunning = false;
-            PlayerState.Instance.playerBody.GetComponent<PlayerMovement>().speed = 12f;
+            speed = 12f;
         }
 
         velocity.y += gravity * Time.deltaTime;
 
         controller.Move(velocity * Time.deltaTime);
 
-        if (lastPosition != gameObject.transform.position && isGrounded ==true && isRunning==false)
+        // Handle walking sound
+        if (lastPosition != gameObject.transform.position && isGrounded && !isRunning)
         {
             isMoving = true;
             SoundManager.Instance.PlaySound(SoundManager.Instance.walkingSound);
@@ -89,11 +136,24 @@ public void Movement()
         {
             isMoving = false;
             SoundManager.Instance.walkingSound.Stop();
-
         }
 
         lastPosition = gameObject.transform.position;
-
     }
 
+    private bool IsOnSlope(out RaycastHit slopeHit)
+    {
+        if (Physics.Raycast(transform.position, Vector3.down, out slopeHit, controller.height / 2 * 1.1f, groundMask))
+        {
+            return Vector3.Angle(slopeHit.normal, Vector3.up) > 0f;
+        }
+        return false;
+    }
+
+    private void ApplyFallDamage(float fallDistance)
+    {
+        float damage = (fallDistance - fallDamageThreshold) * damageMultiplier;
+        PlayerState.Instance.currentHealth-=(int)damage; 
+       
+    }
 }
