@@ -21,19 +21,10 @@ public class EquipableItem : MonoBehaviour
         if (Input.GetKey(KeyCode.Mouse0) && InventorySystem.Instance.isOpen==false && SelectionManager.Instance.pointerIsVisible==false && SelectionManager.Instance.inInteraction==false)
         {
             animator.SetTrigger("hit");
-            SoundManager.Instance.PlaySound(SoundManager.Instance.swingSound);
+           SoundManager.Instance.PlaySound(SoundManager.Instance.swingSound);
             
         }
-
-        if (Input.GetKey(KeyCode.Mouse1) && InventorySystem.Instance.isOpen == false &&
-            SelectionManager.Instance.pointerIsVisible == false && SelectionManager.Instance.inInteraction == false)
-        {
-            if (this.GetComponent<InteractableObject>().GetItemName() == "Health potion")
-            {
-                PlayerState.Instance.currentHealth += 25;
-                Destroy(this.transform.gameObject);
-            }
-        }
+        
     }
     
 }

@@ -99,6 +99,7 @@ GameObject:
   - component: {fileID: 4476845364947840084}
   - component: {fileID: 4966892189073308302}
   - component: {fileID: 7989423853531041902}
+  - component: {fileID: -1046422338351734895}
   m_Layer: 0
   m_Name: Health potion_Model
   m_TagString: Pickable
@@ -208,7 +209,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1305883699301654}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d00b9ae2f3d160543bd4522de258c8e3, type: 3}
   m_Name: 
@@ -264,6 +265,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1305883699301654}
   m_Mesh: {fileID: 0}
+--- !u!114 &-1046422338351734895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1305883699301654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdd18bef15ae1a240a0fe02da6a695f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerInRange: 0
+  ItemName: 
 --- !u!1 &1355227736585190
 GameObject:
   m_ObjectHideFlags: 0

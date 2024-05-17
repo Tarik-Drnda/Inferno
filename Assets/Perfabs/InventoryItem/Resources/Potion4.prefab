@@ -12,11 +12,11 @@ GameObject:
   - component: {fileID: 5643359114552335758}
   - component: {fileID: 149148181786800187}
   - component: {fileID: 2265734681169403892}
-  - component: {fileID: 8299892437286480234}
   - component: {fileID: 7553874766921022676}
+  - component: {fileID: -2623315293061077942}
   m_Layer: 5
   m_Name: Potion4
-  m_TagString: Untagged
+  m_TagString: Potion
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -90,18 +90,6 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!114 &8299892437286480234
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2647236302699878093}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a77ba5a503df373499249b2b0624b701, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &7553874766921022676
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -116,13 +104,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isTrashable: 0
   thisName: Devil's Elixir
-  thisDescription: Infused with dark energies, this elixir bestows an extra 30 calories
-    upon consumption, empowering the imbiber with diabolical sustenance.
+  thisDescription: 'Infused with dark energies, this elixir bestows an extra 30 calories
+    upon consumption, empowering the imbiber with diabolical sustenance. Consume:
+    right mouse button.'
   thisFunctionality: 
   isConsumable: 1
   healthEffect: 0
   caloriesEffect: 30
-  hydrationEffect: 0
   isEquippable: 0
   isUnsideQuickSlot: 0
   isSelected: 0
+--- !u!114 &-2623315293061077942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2647236302699878093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a77ba5a503df373499249b2b0624b701, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

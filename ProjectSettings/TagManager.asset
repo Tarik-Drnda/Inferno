@@ -10,6 +10,7 @@ TagManager:
   - BloodScreen
   - NPC1
   - NPC2
+  - Potion
   layers:
   - Default
   - TransparentFX

@@ -37,6 +37,7 @@ public class InteractableObject : MonoBehaviour
             //if invenory is not full
             if (InventorySystem.Instance.CheckSlotsAvailable() )
             {
+                
              InventorySystem.Instance.AddToInventory(ItemName);
              InventorySystem.Instance.itemsPickedup.Add(gameObject.name);
              Destroy(gameObject);

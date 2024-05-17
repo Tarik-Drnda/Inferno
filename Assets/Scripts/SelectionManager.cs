@@ -121,6 +121,7 @@ public class SelectionManager : MonoBehaviour
                     pointerIsVisible = true;
 
                 }
+             
                 else
                 {
                     Pointer.SetActive(false);

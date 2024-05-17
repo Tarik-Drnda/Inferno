@@ -6,7 +6,7 @@ public class InventoryItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 {
     // --- Is this item trashable --- //
     public bool isTrashable;
- 
+    public static InventoryItem Instance { get; private set; }
     // --- Item Info UI --- //
     private GameObject itemInfoUI;
     
@@ -22,7 +22,6 @@ public class InventoryItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
  
     public float healthEffect;
     public float caloriesEffect;
-    public float hydrationEffect;
  
     //equip
     public bool isEquippable;
@@ -75,9 +74,9 @@ public class InventoryItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
             {
                 // Setting this specific gameobject to be the item we want to destroy later
                 itemPendingConsumption = gameObject;
-                consumingFunction(healthEffect, caloriesEffect, hydrationEffect);
+                consumingFunction(healthEffect, caloriesEffect);
             }
-            if (isEquippable && isUnsideQuickSlot == false && EquipSystem.Instance.CheckIfFull()==false)
+            else if (isEquippable && isUnsideQuickSlot == false && EquipSystem.Instance.CheckIfFull()==false)
             {
                 EquipSystem.Instance.AddToQuickSlots(gameObject);
                 isUnsideQuickSlot = true;
@@ -101,7 +100,7 @@ public class InventoryItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         }
     }
  
-    private void consumingFunction(float healthEffect, float caloriesEffect, float hydrationEffect)
+    private void consumingFunction(float healthEffect, float caloriesEffect)
     {
         itemInfoUI.SetActive(false);
  
@@ -123,7 +122,7 @@ public class InventoryItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
  
         if (healthEffect != 0)
         {
-            if ((healthBeforeConsumption + healthEffect) > maxHealth)
+            if ((healthBeforeConsumption + healthEffect) >= maxHealth)
             {
                 PlayerState.Instance.setHealth(maxHealth);
             }
@@ -144,7 +143,7 @@ public class InventoryItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
  
         if (caloriesEffect != 0)
         {
-            if ((caloriesBeforeConsumption + caloriesEffect) > maxCalories)
+            if ((caloriesBeforeConsumption + caloriesEffect) >= maxCalories)
             {
                 PlayerState.Instance.setCalories(maxCalories);
             }
