@@ -36,44 +36,9 @@ public class NextLevelScript : MonoBehaviour
         {
             _keyF.SetActive(false);
         }
-        if (Input.GetKeyDown(KeyCode.F) && playerInRange == true 
-                                        && NPC.Instance.ComplitedDialog==true
-                                        && SecondNPC.Instance.complitedDialog==true)
+        if (Input.GetKeyDown(KeyCode.F) && playerInRange == true )
         {
-            
-           
             SceneManager.LoadScene("1.krug");
-        }
-        else if ( playerInRange == true
-                                             && GameObject.FindWithTag("NPC1").GetComponent<NPC>().ComplitedDialog==false
-                                             && GameObject.FindWithTag("NPC2").GetComponent<SecondNPC>().complitedDialog==true)
-        {
-            _tabInfo.GetComponent<Text>().text = "Complete dialog with NPC1!";
-            _tabInfo.SetActive(true);
-            frame.SetActive(true);
-         
-            
-        }
-        else if (playerInRange == true
-                                             && GameObject.FindWithTag("NPC1").GetComponent<NPC>().ComplitedDialog==true
-                                             && GameObject.FindWithTag("NPC2").GetComponent<SecondNPC>().complitedDialog==false)
-        {
-            _tabInfo.GetComponent<Text>().text = "Complete dialog with NPC2!";
-            _tabInfo.SetActive(true);
-            frame.SetActive(true);
-          
-            
-        }
-        else if (playerInRange == true
-                                             && GameObject.FindWithTag("NPC1").GetComponent<NPC>().ComplitedDialog==false
-                                             && GameObject.FindWithTag("NPC2").GetComponent<SecondNPC>().complitedDialog==false)
-        {
-            
-            _tabInfo.GetComponent<Text>().text="Complete dialog with NPC1!" + "\n" + "Complete dialog with NPC2!";
-            _tabInfo.SetActive(true);
-            frame.SetActive(true);
-            
-           
         }
         else
         {
