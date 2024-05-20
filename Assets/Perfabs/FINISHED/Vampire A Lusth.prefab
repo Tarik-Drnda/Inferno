@@ -26,17 +26,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: bea902d959b216c46b60e4b40f404079,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 17.771814
+      value: 120.591415
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bea902d959b216c46b60e4b40f404079,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.0000009536743
+      value: -0.000005722046
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bea902d959b216c46b60e4b40f404079,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 41.960438
+      value: 210.14182
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bea902d959b216c46b60e4b40f404079,
         type: 3}
@@ -82,12 +82,17 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Avatar
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 9000000, guid: bea902d959b216c46b60e4b40f404079, type: 3}
     - target: {fileID: 5866666021909216657, guid: bea902d959b216c46b60e4b40f404079,
         type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 9a5a4876d338be04db6f9c627b3d99ca, type: 2}
+      objectReference: {fileID: 9100000, guid: 944dfbfa0f6aa584792dcfc41a41e3e0, type: 2}
+    - target: {fileID: 5866666021909216657, guid: bea902d959b216c46b60e4b40f404079,
+        type: 3}
+      propertyPath: m_CullingMode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: bea902d959b216c46b60e4b40f404079,
         type: 3}
       propertyPath: m_WarningMessage
@@ -162,7 +167,7 @@ MonoBehaviour:
   playerTransform: {fileID: 0}
   wantedDistance: 40
   bloodScreen: {fileID: 0}
-  enemyName: Senad Rahimic
+  enemyName: Vampire A Lusth
   playerInRange: 0
   currentHealth: 0
   maxHealth: 40

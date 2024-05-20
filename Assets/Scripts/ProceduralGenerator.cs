@@ -1,4 +1,6 @@
 
+using System.Collections;
+using System.Linq.Expressions;
 using UnityEngine;
 
 public class ProceduralGenerator : MonoBehaviour
@@ -8,11 +10,17 @@ public class ProceduralGenerator : MonoBehaviour
     public Vector3 generationAreaSize = new Vector3(100f, 1f, 100f);
 
     public Transform parentContainer;
+    public float spawnSeconds = 0f;
+    public int counter = 0;
 
+    public float absoluteGroundLevel = 0f;
 
-    public float absoluteGroundLevel = 0f; 
-
-    void Start()
+    void start()
+    {
+        prefab.GetComponent<EnemyAI>().playerTransform = GameObject.FindWithTag("Player").transform;
+        prefab.GetComponent<EnemyAI>().bloodScreen = GameObject.FindWithTag("BloodScreen");
+    }
+    void Update()
     {
         // If no parentContainer provided, instances will be generated as children of the generator.
         if (parentContainer == null)
@@ -21,19 +29,24 @@ public class ProceduralGenerator : MonoBehaviour
         }
 
         gameObject.transform.position = new Vector3(gameObject.transform.position.x, absoluteGroundLevel, gameObject.transform.position.z);
-
-        Generate();
+        if (counter <= numberOfPrefabInstances)
+        {
+            StartCoroutine(GenerateCall());
+            counter++;
+        }
+       
     }
 
     void Generate()
     {
-        for (int i = 0; i < numberOfPrefabInstances; i++)
-        {
+        GameObject gO;
             Vector3 randomPosition = GetRandomPositionInGenerationArea();
             Quaternion randomRotation = Quaternion.Euler(-90f, 0f, 0f);
             //Instantiate(prefab, randomPosition, randomRotation);
-            Instantiate(prefab, randomPosition, randomRotation, parentContainer.transform);
-        }
+           gO= Instantiate(prefab, randomPosition, randomRotation, parentContainer.transform);
+           gO.GetComponent<EnemyAI>().playerTransform = GameObject.FindWithTag("Player").transform;
+           gO.GetComponent<EnemyAI>().bloodScreen = GameObject.FindWithTag("BloodScreen");
+        
     }
 
     Vector3 GetRandomPositionInGenerationArea()
@@ -56,5 +69,11 @@ public class ProceduralGenerator : MonoBehaviour
     {
         Gizmos.color = Color.green;
         Gizmos.DrawWireCube(transform.position, generationAreaSize);
+    }
+
+    public IEnumerator GenerateCall()
+    {
+        yield return new WaitForSeconds(spawnSeconds);
+        Generate();
     }
 }

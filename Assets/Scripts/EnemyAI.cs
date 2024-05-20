@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Video;
 
 public class EnemyAI : MonoBehaviour
 {
@@ -19,7 +20,7 @@ public class EnemyAI : MonoBehaviour
     //-Enemy information-//
     public string enemyName;
     public bool playerInRange;
-    private bool _isDead=false;
+    public bool _isDead=false;
     
     public int currentHealth;
     public int maxHealth;
@@ -106,10 +107,12 @@ public class EnemyAI : MonoBehaviour
         if (currentHealth <= 0)
         {
             _animator.SetTrigger("isDead");
+            this.transform.position = new Vector3(this.transform.position.x,-1.36f,this.transform.position.z);
             this.GetComponent<NavMeshAgent>().enabled = false;
             _isDead = true;
             this.GetComponent<Collider>().enabled = false;
-
+            
+            
         }
         else
         {
