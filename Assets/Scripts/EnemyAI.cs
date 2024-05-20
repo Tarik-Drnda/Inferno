@@ -111,6 +111,7 @@ public class EnemyAI : MonoBehaviour
             this.GetComponent<NavMeshAgent>().enabled = false;
             _isDead = true;
             this.GetComponent<Collider>().enabled = false;
+            Destroy(this.gameObject);
             
             
         }

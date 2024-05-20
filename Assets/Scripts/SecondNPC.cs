@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SecondNPC : MonoBehaviour
 
@@ -120,6 +121,7 @@ public class SecondNPC : MonoBehaviour
         currentDialogueIndex = 0;
         animator.SetBool("isTalking", false);
         complitedDialog = true;
+        SceneManager.LoadScene("4.krug");
     }
 
     public void LookAtPlayer()
