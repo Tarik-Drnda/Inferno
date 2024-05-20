@@ -17,7 +17,6 @@ public class SoundManager : MonoBehaviour
     public AudioSource startingZoneBGMusic;
     public AudioSource BGMusic;
     
-    //Enemys
     public AudioSource enemyHit;
     private void Awake()
     {

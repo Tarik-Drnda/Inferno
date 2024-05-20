@@ -34,7 +34,6 @@ public class InteractableObject : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Mouse0) && playerInRange && SelectionManager.Instance.onTarget && SelectionManager.Instance.selectedObject==gameObject)
         {
-            //if invenory is not full
             if (InventorySystem.Instance.CheckSlotsAvailable() )
             {
                 

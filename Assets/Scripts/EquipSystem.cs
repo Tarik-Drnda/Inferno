@@ -8,7 +8,6 @@ public class EquipSystem : MonoBehaviour
 {
     public static EquipSystem Instance { get; set; }
  
-    // -- UI -- //
     public GameObject quickSlotsPanel;
  
     public List<GameObject> quickSlotsList = new List<GameObject>();
@@ -85,7 +84,6 @@ public class EquipSystem : MonoBehaviour
                 Debug.Log(selectedItem.name);
                SetEquippedModel(selectedItem);
                 
-                //changing the color
                 foreach (Transform child in numbersHolder.transform)
                 {
                     child.transform.Find("Text").GetComponent<Text>().color=Color.gray;
@@ -96,7 +94,6 @@ public class EquipSystem : MonoBehaviour
 
             }
             else
-                //trying to select the same slot
             {
                 selectedNumber = -1;
                 if (selectedItem != null)
@@ -159,13 +156,9 @@ public class EquipSystem : MonoBehaviour
  
     public void AddToQuickSlots(GameObject itemToEquip)
     {
-        // Find next free slot
         GameObject availableSlot = FindNextEmptySlot();
-        // Set transform of our object, set different parent from slot to quickSlot
         itemToEquip.transform.SetParent(availableSlot.transform, false);
-        // Getting clean name
         string cleanName = itemToEquip.name.Replace("(Clone)", "");
-        // Adding item to list
         itemList.Add(cleanName);
  
         InventorySystem.Instance.ReCalculeList();

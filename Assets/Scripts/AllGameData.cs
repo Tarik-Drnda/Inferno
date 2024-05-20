@@ -9,5 +9,4 @@ public class AllGameData
 
    public EnviromentData enviromentData;
 
-   // public ConstructionData constructionData;
 }

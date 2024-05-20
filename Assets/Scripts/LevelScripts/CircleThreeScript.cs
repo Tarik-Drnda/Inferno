@@ -13,14 +13,12 @@ public class CircleThreeScript : MonoBehaviour
     public GameObject pressF;
 
     private GameObject gm;
-    // Start is called before the first frame update
     void Start()
     {
         gm = GameObject.FindWithTag("NPC2");
         StartCoroutine(DisplayInfo());
     }
 
-    // Update is called once per frame
     void Update()
     {
         infoTabText.GetComponent<Text>().text =

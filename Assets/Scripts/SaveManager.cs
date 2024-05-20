@@ -28,11 +28,8 @@ public class SaveManager : MonoBehaviour
     }
     
     
-//Json project save path
      string jsonPathProject;
-//Json external/real save path
      string jsonPathPersistant;
-//binary save path
      string binaryPath;
 
     private void Start()
@@ -69,7 +66,6 @@ public class SaveManager : MonoBehaviour
         
         
 
-        // Pakovanje podataka u niz
         float[] playerPosAndRot = new float[6];
         playerPosAndRot[0] = PlayerState.Instance.playerBody.transform.position.x;
         playerPosAndRot[1] = PlayerState.Instance.playerBody.transform.position.y;
@@ -130,9 +126,7 @@ public class SaveManager : MonoBehaviour
 
     public void LoadGame(int slotNumber)
     {
-        //player data
         SetPlayerData(LoadingTypeSwitch(slotNumber).playerData);
-        //enviroment data
         SetEnviromentData(LoadingTypeSwitch(slotNumber).enviromentData);
         
         isLoading = false;
@@ -144,7 +138,6 @@ public class SaveManager : MonoBehaviour
 
     private void SetEnviromentData(EnviromentData enviromentData)
     {
-        //brisemo ono sto smo uzeli 
         foreach (Transform itemType in EnviromentManager.Instance.allItems.transform)
         {
             foreach (Transform item in itemType.transform)
@@ -162,31 +155,26 @@ public class SaveManager : MonoBehaviour
     private void SetPlayerData(PlayerData playerData)
     {
 
-// Setting Player Stats
         PlayerState.Instance.currentHealth = playerData.playerStats[0];
         PlayerState.Instance.currentCalories =playerData.playerStats[1];
       
-// Setting Player Position
         Vector3 loadedPosition;
         loadedPosition.x =playerData.playerPositionAndRotation[0];
         loadedPosition.y =playerData.playerPositionAndRotation[1];
         loadedPosition.z =playerData.playerPositionAndRotation[2];
         PlayerState.Instance.playerBody.transform.position =  loadedPosition;
-// Setting Player Rotation
         Vector3 loadedRotation;
         loadedRotation.x =  playerData.playerPositionAndRotation[3]; 
         loadedRotation.y =  playerData.playerPositionAndRotation[4]; 
         loadedRotation.z =  playerData.playerPositionAndRotation[5];
         PlayerState.Instance.playerBody.transform.rotation =  Quaternion.Euler(loadedRotation);
         
-        //Inventory 
         foreach (string item in playerData.inventoryContent)
         {
             InventorySystem.Instance.AddToInventory(item);
         }
         foreach (string item in playerData.quickSlotsContent)
         {
-            //nalazi prvo slobodno mjesto
             GameObject availableSlot = EquipSystem.Instance.FindNextEmptySlot();
             var itemToAdd = Instantiate(Resources.Load<GameObject>(item));
             
@@ -218,24 +206,20 @@ public class SaveManager : MonoBehaviour
     public void SaveGameDataToBinaryFile(AllGameData gameData, int slotNumber)
     {
         BinaryFormatter formatter = new BinaryFormatter();
-        //find path and on that path create filemode
        
         FileStream stream = new FileStream(binaryPath  + fileName + slotNumber + ".bin", FileMode.Create);
         
         formatter.Serialize(stream,gameData);
         stream.Close();
-        //gdje je spremljeno sve sto imamo od podataka 
         print("Data saved to" + binaryPath  + fileName + slotNumber + ".bin" );
     }
     public AllGameData LoadGameDataFromBinaryFile( int slotNumber)
     {
-        //loadamo sa istog mjesta
         if (File.Exists(binaryPath+ fileName + slotNumber + ".bin"))
         {
             BinaryFormatter formatter = new BinaryFormatter();
             
             FileStream stream = new FileStream(binaryPath+ fileName + slotNumber + ".bin", FileMode.Open);
-            //uzima sve podatke i bilda allgamedata
             AllGameData data = formatter.Deserialize(stream) as AllGameData;
             stream.Close();
             print("Data loaded from: " + binaryPath + fileName + slotNumber + ".bin" );
@@ -254,7 +238,7 @@ public class SaveManager : MonoBehaviour
     {
         string json = JsonUtility.ToJson(gameData);
 
-       // string encrypted = EncryptionDecryption(json);
+        string encrypted = EncryptionDecryption(json);
         using (StreamWriter writer = new StreamWriter(jsonPathProject + fileName + slotNumber + ".json"))
         {
             writer.Write(json);
@@ -266,7 +250,7 @@ public class SaveManager : MonoBehaviour
         using (StreamReader reader = new StreamReader(jsonPathProject + fileName + slotNumber + ".json"))
         {
             string json = reader.ReadToEnd();
-          //  string decrypted = EncryptionDecryption(json);
+             string decrypted = EncryptionDecryption(json);
             AllGameData data = JsonUtility.FromJson<AllGameData>(json);
             return data;
         }
@@ -291,7 +275,6 @@ public class SaveManager : MonoBehaviour
             effects = _effects,
             master = _master
         };
-        //as json string, because that is the only way 
         PlayerPrefs.SetString("Volume", JsonUtility.ToJson(volumeSettings));
         PlayerPrefs.Save();
         print("Saved to Player Pref");
@@ -310,7 +293,6 @@ public class SaveManager : MonoBehaviour
 
     public string EncryptionDecryption(string jsonString)
     {
-        //json file da se ne moze citati
         string keyword = "1234567";
 
         string result = "";

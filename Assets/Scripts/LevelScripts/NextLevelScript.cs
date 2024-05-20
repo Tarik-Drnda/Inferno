@@ -18,13 +18,8 @@ public class NextLevelScript : MonoBehaviour
     
     public GameObject _npc1;
     public GameObject _npc2;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+   
 
-    // Update is called once per frame
     void Update()
     {
        

@@ -26,7 +26,7 @@ public class SelectionManager : MonoBehaviour
     private void Start()
     {
         interaction_text = Interaction_Info_UI.GetComponent<Text>();
-        Crosshair.SetActive(true); // Start with UI disabled
+        Crosshair.SetActive(true); 
         Cursor.visible = false;
     }
 

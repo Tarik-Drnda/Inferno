@@ -9,13 +9,7 @@ public class BoatMovement : MonoBehaviour
     private float distance;
 
     private int index = 0;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
     void Update()
     {
        

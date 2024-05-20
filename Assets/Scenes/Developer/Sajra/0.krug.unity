@@ -3614,6 +3614,8 @@ MonoBehaviour:
   numberOfPrefabInstances: 1000
   generationAreaSize: {x: 991.7, y: 0, z: 930.4}
   parentContainer: {fileID: 1863687456}
+  spawnSeconds: 0
+  counter: 0
   absoluteGroundLevel: 0
 --- !u!4 &316752028
 Transform:

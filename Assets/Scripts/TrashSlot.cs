@@ -62,7 +62,7 @@ public class TrashSlot : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPoi
  
     public void OnDrop(PointerEventData eventData)
     {
-        //itemToBeDeleted = DragDrop.itemBeingDragged.gameObject;
+        itemToBeDeleted = DragDrop.itemBeingDragged.gameObject;
         if (draggedItem.GetComponent<InventoryItem>().isTrashable == true)
         {
             itemToBeDeleted = draggedItem.gameObject;

@@ -40,10 +40,7 @@ public class LoadSlot : MonoBehaviour
                 SaveManager.Instance.StartLoadedGame (slotNumber); 
                 SaveManager.Instance.DeselectButton();
             }
-            else 
-            { 
-                // If empty do nothing
-            }
+           
                     
         });
         }

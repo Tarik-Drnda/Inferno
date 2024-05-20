@@ -7,12 +7,10 @@ using UnityEngine;
 public class PlayerState : MonoBehaviour
 {
     
-    //Player health
 
     public float currentHealth;
     public float maxHealth;
     
-    //player Calories 
     public float currentCalories;
     public float maxCalories;
 
@@ -26,7 +24,6 @@ public class PlayerState : MonoBehaviour
     public bool isHydrationActive;
     public static PlayerState Instance { get; set; }
 
-    // Regeneration
     [CanBeNull] private float timepass = 5f;
     private float timeUkupno = 0f;
     private void Awake()
@@ -51,7 +48,6 @@ public class PlayerState : MonoBehaviour
 
    
 
-    // Update is called once per frame
     void Update()
     {
        
@@ -77,7 +73,7 @@ public class PlayerState : MonoBehaviour
         
         if (currentHealth <= 0)
         {
-            GameOverManager.Instance.ShowDeathCanvas(); // Pokrenite prikaz canvasa smrti
+            GameOverManager.Instance.ShowDeathCanvas(); 
         }
     }
 

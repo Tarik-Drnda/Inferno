@@ -40,8 +40,5 @@ public class CollisionDetection : MonoBehaviour
         Debug.Log(other.name);
     }
 
-    void Update()
-    {
-        
-    }
+   
 }

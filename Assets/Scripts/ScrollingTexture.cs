@@ -7,14 +7,12 @@ public class ScrollingTexture : MonoBehaviour
     private float curX; 
     private float curY;
 
-    // Start is called before the first frame update
     void Start()
     {
         curX = GetComponent<Renderer>().material.mainTextureOffset.x;
         curY = GetComponent<Renderer>().material.mainTextureOffset.y;
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
         curX += Time.deltaTime * speedX;

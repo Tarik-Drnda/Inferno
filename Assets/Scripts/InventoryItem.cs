@@ -4,10 +4,8 @@ using UnityEngine.UI;
  
 public class InventoryItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerUpHandler
 {
-    // --- Is this item trashable --- //
     public bool isTrashable;
     public static InventoryItem Instance { get; private set; }
-    // --- Item Info UI --- //
     private GameObject itemInfoUI;
     
     private Text itemInfoUI_itemName;
@@ -16,14 +14,12 @@ public class InventoryItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
  
     public string thisName, thisDescription, thisFunctionality;
  
-    // --- Consumption --- //
     private GameObject itemPendingConsumption;
     public bool isConsumable;
  
     public float healthEffect;
     public float caloriesEffect;
  
-    //equip
     public bool isEquippable;
     private GameObject itemPendingEquipping;
     public bool isUnsideQuickSlot;
@@ -49,7 +45,6 @@ public class InventoryItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         }
     }
  
-    // Triggered when the mouse enters into the area of the item that has this script.
     public void OnPointerEnter(PointerEventData eventData)
     {
         itemInfoUI.SetActive(true);
@@ -58,21 +53,17 @@ public class InventoryItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     }
  
-    // Triggered when the mouse exits the area of the item that has this script.
     public void OnPointerExit(PointerEventData eventData)
     {
         itemInfoUI.SetActive(false);
     }
  
-    // Triggered when the mouse is clicked over the item that has this script.
     public void OnPointerDown(PointerEventData eventData)
     {
-        //Right Mouse Button Click on
         if (eventData.button == PointerEventData.InputButton.Right)
         {
             if (isConsumable)
             {
-                // Setting this specific gameobject to be the item we want to destroy later
                 itemPendingConsumption = gameObject;
                 consumingFunction(healthEffect, caloriesEffect);
             }
@@ -86,7 +77,6 @@ public class InventoryItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         
     }
  
-    // Triggered when the mouse button is released over the item that has this script.
     public void OnPointerUp(PointerEventData eventData)
     {
         if (eventData.button == PointerEventData.InputButton.Right)
@@ -115,7 +105,6 @@ public class InventoryItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
  
     private static void healthEffectCalculation(float healthEffect)
     {
-        // --- Health --- //
  
         float healthBeforeConsumption = PlayerState.Instance.currentHealth;
         float maxHealth = PlayerState.Instance.maxHealth;
@@ -136,7 +125,6 @@ public class InventoryItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
  
     private static void caloriesEffectCalculation(float caloriesEffect)
     {
-        // --- Calories --- //
  
         float caloriesBeforeConsumption = PlayerState.Instance.currentCalories;
         float maxCalories = PlayerState.Instance.maxCalories;

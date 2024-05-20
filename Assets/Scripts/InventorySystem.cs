@@ -21,7 +21,6 @@ public class InventorySystem : MonoBehaviour
     public bool isOpen;
   
   
-    //PICKUP POPUP
 
     public GameObject pickupAlert;
     public Text pickupName;

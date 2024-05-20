@@ -22,7 +22,6 @@ public class ProceduralGenerator : MonoBehaviour
     }
     void Update()
     {
-        // If no parentContainer provided, instances will be generated as children of the generator.
         if (parentContainer == null)
         {
             parentContainer = transform.root;
@@ -57,14 +56,12 @@ public class ProceduralGenerator : MonoBehaviour
            Random.Range(-generationAreaSize.z / 2, generationAreaSize.z / 2)
        );
 
-        // Optionally, you can adjust the Y coordinate based on terrain height or other criteria
-        // For example:
+      
         // randomPosition.y = Terrain.activeTerrain.SampleHeight(randomPosition);
 
         return transform.position + randomPosition;
     }
 
-    // Draw Gizmo to visualize the generation area
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.green;

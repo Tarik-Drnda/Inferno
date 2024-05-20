@@ -16,7 +16,6 @@ public class MainMenu : MonoBehaviour
    
     }
 
-    // Update is called once per frame
     public void ExitGame()
     {
         Debug.Log("Quitting game");

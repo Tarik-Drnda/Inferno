@@ -21,12 +21,10 @@ public class AI_Movement : MonoBehaviour
  
     public bool isWalking;
  
-    // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
  
-        //So that all the prefabs don't move/stop at the same time
         walkTime = Random.Range(3,6);
         waitTime = Random.Range(5,7);
  
@@ -37,7 +35,6 @@ public class AI_Movement : MonoBehaviour
         ChooseDirection();
     }
  
-    // Update is called once per frame
     void Update()
     {
         if (isWalking)
@@ -71,10 +68,8 @@ public class AI_Movement : MonoBehaviour
             {
                 stopPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z);
                 isWalking = false;
-                //stop movement
                 transform.position = stopPosition;
                 animator.SetBool("isRunning", false);
-                //reset the waitCounter
                 waitCounter = waitTime;
             }
  

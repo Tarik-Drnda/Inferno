@@ -37,8 +37,5 @@ public class WorldGeneratorFloor : MonoBehaviour
         
     }
     
-    void Update()
-    {
-        
-    }
+
 }

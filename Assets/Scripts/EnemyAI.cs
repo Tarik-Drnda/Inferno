@@ -15,9 +15,8 @@ public class EnemyAI : MonoBehaviour
 
     public GameObject bloodScreen;
 
-    private bool canAttack = true; // Flag to control whether the enemy can attack
+    private bool canAttack = true; 
     
-    //-Enemy information-//
     public string enemyName;
     public bool playerInRange;
     public bool _isDead=false;
@@ -47,7 +46,6 @@ public class EnemyAI : MonoBehaviour
 
             if (distanceToPlayer <= 4f && canAttack && _isDead == false) 
             {
-                // Start the coroutine to delay the Attack function call
                 StartCoroutine(AttackAfterDelay());
             }
         }
@@ -56,25 +54,20 @@ public class EnemyAI : MonoBehaviour
 
     private IEnumerator AttackAfterDelay()
     {
-        // Set canAttack to false to prevent immediate attack
         CancelInvoke("playHit");
         canAttack = false;
        
 
-        // Wait for 3 seconds
         yield return new WaitForSeconds(3f);
 
-        // Call the Attack function
         Attack();
 
-        // Reset canAttack after the attack
         canAttack = true;
     }
 
     private void Attack()
     {
         Debug.Log("Attacking!");
-        // Deal damage to the player
         if (PlayerState.Instance.currentHealth > 0)
         {
             PlayerState.Instance.currentHealth -= 10;

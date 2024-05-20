@@ -12,8 +12,8 @@ public class PlayerMovement : MonoBehaviour
     public float gravity = -9.81f * 2;
     public float jumpHeight = 3f;
 
-    public Transform groundCheck; // Checks if on ground
-    public float groundDistance = 0.4f; // Distance to ground
+    public Transform groundCheck; 
+    public float groundDistance = 0.4f; 
     public LayerMask groundMask;
     
     Vector3 velocity;
@@ -24,18 +24,17 @@ public class PlayerMovement : MonoBehaviour
 
     private AudioSource audioSource;
 
-    public float maxSlopeAngle = 45f; // Maximum angle the player can walk on
+    public float maxSlopeAngle = 45f; 
 
-    private float lastGroundedY; // The y-position when last grounded
-    public float fallDamageThreshold = 5f; // The threshold for taking fall damage
-    public float damageMultiplier = 2f; // Multiplier for calculating fall damage
+    private float lastGroundedY; 
+    public float fallDamageThreshold = 5f; 
+    public float damageMultiplier = 2f; 
 
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (DialogSystem.Instance.dialogUIActive == false)
@@ -46,7 +45,6 @@ public class PlayerMovement : MonoBehaviour
 
     public void Movement()
     {
-        // Check if grounded
         bool wasGrounded = isGrounded;
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
@@ -55,7 +53,6 @@ public class PlayerMovement : MonoBehaviour
             velocity.y = -2f;
         }
 
-        // Calculate fall damage if player just landed
         if (!wasGrounded && isGrounded)
         {
             float fallDistance = lastGroundedY - transform.position.y;
@@ -67,7 +64,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (isGrounded)
         {
-            lastGroundedY = transform.position.y; // Update last grounded y-position
+            lastGroundedY = transform.position.y; 
         }
 
         float x = Input.GetAxis("Horizontal");
@@ -75,7 +72,6 @@ public class PlayerMovement : MonoBehaviour
 
         Vector3 move = transform.right * x + transform.forward * z;
 
-        // Handle slope detection and movement
         if (IsOnSlope(out RaycastHit slopeHit))
         {
             float slopeAngle = Vector3.Angle(Vector3.up, slopeHit.normal);
@@ -83,33 +79,28 @@ public class PlayerMovement : MonoBehaviour
 
             if (slopeAngle > maxSlopeAngle)
             {
-                // Slide down the slope
                 Vector3 slideDirection = Vector3.ProjectOnPlane(move, slopeHit.normal).normalized;
                 controller.Move(slideDirection * speed * Time.deltaTime);
                 Debug.Log("Sliding down slope.");
             }
             else
             {
-                // Normal movement
                 controller.Move(move * speed * Time.deltaTime);
                 Debug.Log("Moving normally on slope.");
             }
         }
         else
         {
-            // Normal movement
             controller.Move(move * speed * Time.deltaTime);
             Debug.Log("Moving normally.");
         }
 
-        // Jumping
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
             SoundManager.Instance.PlaySound(SoundManager.Instance.jumpingSound);
         }
 
-        // Running
         if (Input.GetKey(KeyCode.LeftShift) && isGrounded && PlayerState.Instance.currentCalories > 0)
         {
             isRunning = true;
@@ -126,7 +117,6 @@ public class PlayerMovement : MonoBehaviour
 
         controller.Move(velocity * Time.deltaTime);
 
-        // Handle walking sound
         if (lastPosition != gameObject.transform.position && isGrounded && !isRunning)
         {
             isMoving = true;

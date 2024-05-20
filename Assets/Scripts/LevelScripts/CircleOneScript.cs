@@ -15,13 +15,11 @@ public class CircleOneScript : MonoBehaviour
     public List<GameObject> enemies = new List<GameObject>();
 
     private bool playerInRange;
-    // Start is called before the first frame update
     void Start()
     {
         StartCoroutine(DisplayInfo());
     }
 
-    // Update is called once per frame
     void Update()
     {
         infoTabText.GetComponent<Text>().text =
