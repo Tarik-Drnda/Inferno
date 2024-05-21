@@ -164,7 +164,7 @@ MonoBehaviour:
   playerTransform: {fileID: 0}
   wantedDistance: 10
   bloodScreen: {fileID: 0}
-  enemyName: Gluttony Mutant Human
+  enemyName: Infernal Minion
   playerInRange: 0
   _isDead: 0
   currentHealth: 0

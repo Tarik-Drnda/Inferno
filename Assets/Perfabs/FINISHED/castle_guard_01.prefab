@@ -115,8 +115,9 @@ MonoBehaviour:
   playerTransform: {fileID: 0}
   wantedDistance: 40
   bloodScreen: {fileID: 0}
-  enemyName: Castle Guard
+  enemyName: Sinister Phantom
   playerInRange: 0
+  _isDead: 0
   currentHealth: 0
   maxHealth: 40
 --- !u!195 &3687679969648254849

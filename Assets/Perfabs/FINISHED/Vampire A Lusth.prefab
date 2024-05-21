@@ -167,8 +167,9 @@ MonoBehaviour:
   playerTransform: {fileID: 0}
   wantedDistance: 40
   bloodScreen: {fileID: 0}
-  enemyName: Vampire A Lusth
+  enemyName: Night Stalker
   playerInRange: 0
+  _isDead: 0
   currentHealth: 0
   maxHealth: 40
 --- !u!65 &8376250072257121052

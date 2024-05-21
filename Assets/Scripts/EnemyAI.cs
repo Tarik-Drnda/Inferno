@@ -88,7 +88,7 @@ public class EnemyAI : MonoBehaviour
     {
   
         yield return new WaitForSeconds(1.45f);
-        SoundManager.Instance.PlaySound(SoundManager.Instance.enemyHit);
+       SoundManager.Instance.PlaySound(SoundManager.Instance.enemyHit);
         bloodScreen.SetActive(true);
     }
 
