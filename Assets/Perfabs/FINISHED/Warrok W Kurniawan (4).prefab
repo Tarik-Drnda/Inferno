@@ -1,0 +1,196 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &2154543528481113997
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 460e34d5f03bed849b0eb2f68cf71fa8,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 460e34d5f03bed849b0eb2f68cf71fa8,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 460e34d5f03bed849b0eb2f68cf71fa8,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 460e34d5f03bed849b0eb2f68cf71fa8,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 487.3
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 460e34d5f03bed849b0eb2f68cf71fa8,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 34.15
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 460e34d5f03bed849b0eb2f68cf71fa8,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 699
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 460e34d5f03bed849b0eb2f68cf71fa8,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7063084
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 460e34d5f03bed849b0eb2f68cf71fa8,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 460e34d5f03bed849b0eb2f68cf71fa8,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.70790434
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 460e34d5f03bed849b0eb2f68cf71fa8,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 460e34d5f03bed849b0eb2f68cf71fa8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 460e34d5f03bed849b0eb2f68cf71fa8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90.129
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 460e34d5f03bed849b0eb2f68cf71fa8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 460e34d5f03bed849b0eb2f68cf71fa8,
+        type: 3}
+      propertyPath: m_Name
+      value: Warrok W Kurniawan (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: 460e34d5f03bed849b0eb2f68cf71fa8,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: f87a5eaa1d740b1458223a9ac621f0fd, type: 2}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 460e34d5f03bed849b0eb2f68cf71fa8,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8956631132782079514}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 460e34d5f03bed849b0eb2f68cf71fa8,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1764646319067860563}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 460e34d5f03bed849b0eb2f68cf71fa8,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6101022603505894858}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 460e34d5f03bed849b0eb2f68cf71fa8,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5356385501294945332}
+  m_SourcePrefab: {fileID: 100100000, guid: 460e34d5f03bed849b0eb2f68cf71fa8, type: 3}
+--- !u!1 &1235974478529755868 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 460e34d5f03bed849b0eb2f68cf71fa8,
+    type: 3}
+  m_PrefabInstance: {fileID: 2154543528481113997}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8956631132782079514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1235974478529755868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5d51385a530d6e45a8edda88b481db2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerTransform: {fileID: 0}
+  wantedDistance: 35
+  bloodScreen: {fileID: 0}
+  enemyName: Warrok
+  playerInRange: 0
+  _isDead: 0
+  currentHealth: 0
+  maxHealth: 60
+--- !u!65 &1764646319067860563
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1235974478529755868}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 21.614496, y: 8.97798, z: 25.880789}
+  m_Center: {x: -0.07052517, y: 0.064219475, z: 1.9843378}
+--- !u!65 &6101022603505894858
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1235974478529755868}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 2.1663933, z: 1}
+  m_Center: {x: 0, y: 1.1145401, z: 0}
+--- !u!195 &5356385501294945332
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1235974478529755868}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 8
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 720
+  m_StoppingDistance: 3
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4

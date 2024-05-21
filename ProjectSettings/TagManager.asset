@@ -11,6 +11,7 @@ TagManager:
   - NPC1
   - NPC2
   - Potion
+  - Water
   layers:
   - Default
   - TransparentFX

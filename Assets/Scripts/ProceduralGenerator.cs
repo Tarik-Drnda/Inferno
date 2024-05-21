@@ -19,6 +19,7 @@ public class ProceduralGenerator : MonoBehaviour
     {
         prefab.GetComponent<EnemyAI>().playerTransform = GameObject.FindWithTag("Player").transform;
         prefab.GetComponent<EnemyAI>().bloodScreen = GameObject.FindWithTag("BloodScreen");
+        GameObject.FindWithTag("BloodScreen").SetActive(false);
     }
     void Update()
     {

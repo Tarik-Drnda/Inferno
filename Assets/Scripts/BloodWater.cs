@@ -6,6 +6,7 @@ public class BloodWater : MonoBehaviour
     public float speed = 1.0f;
     private Vector3 positionA;
     private Vector3 positionB;
+    public bool playerInRange;
 
     void Start()
     {
@@ -29,6 +30,21 @@ public class BloodWater : MonoBehaviour
         {
             transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
             yield return null; 
+        }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            playerInRange = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            playerInRange = false;
         }
     }
 }
