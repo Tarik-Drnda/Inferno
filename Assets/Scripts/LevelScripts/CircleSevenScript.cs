@@ -23,7 +23,7 @@ public class CircleSevenScript : MonoBehaviour
     {
         if (playerInRange == true)
         {
-           SceneManager.LoadScene("8.krug");
+           SceneManager.LoadScene("8.krug2");
         }
         infoTabText.GetComponent<Text>().text = "Stay in the boat!";
         if (gm.GetComponent<BloodWater>().playerInRange == true)

@@ -39,12 +39,14 @@ public class NextLevelScript : MonoBehaviour
         if (playerInRange == true)
         {
             keyF.SetActive(true);
+            SelectionManager.Instance.Crosshair.SetActive(false);
         }
         else
         {
             keyF.SetActive(false);
+            SelectionManager.Instance.Crosshair.SetActive(true);
         }
-        if (Input.GetKeyDown(KeyCode.F) && playerInRange == true )
+        if (Input.GetKeyDown(KeyCode.F) && playerInRange == true && wp.gameObject==null)
         {
             SceneManager.LoadScene("1.krug2");
         }

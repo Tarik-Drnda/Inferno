@@ -66,11 +66,6 @@ public class PlayerState : MonoBehaviour
             playerBody.GetComponent<PlayerMovement>().speed = 12f;
         }
         
-        if (Input.GetKeyDown(KeyCode.N))
-        {
-            currentHealth -= 10;
-        }
-        
         if (currentHealth <= 0)
         {
             GameOverManager.Instance.ShowDeathCanvas(); 

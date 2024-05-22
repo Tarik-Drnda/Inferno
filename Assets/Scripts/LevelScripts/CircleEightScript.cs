@@ -46,6 +46,6 @@ public class CircleEightScript : MonoBehaviour
     private IEnumerator StartAnotherLevel()
     {
         yield return new WaitForSeconds(3f);
-        SceneManager.LoadScene("9.krug");
+        SceneManager.LoadScene("9.krug2");
     }
 }

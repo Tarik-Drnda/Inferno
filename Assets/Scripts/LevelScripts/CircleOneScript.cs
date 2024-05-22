@@ -26,10 +26,8 @@ public class CircleOneScript : MonoBehaviour
             "Kill the enemies in order to enter the castle Portal. \n Enemies remaining: " + enemies.Count;
        for(int i=0;i<enemies.Count;i++)
         {
-            
-            _isDead = enemies[i].gameObject.GetComponent<EnemyAI>()._isDead;
             Debug.Log(_isDead);
-            if (_isDead==true)
+            if (enemies[i].gameObject==null)
             {
                 enemies.Remove(enemies[i]);
             }
@@ -42,15 +40,17 @@ public class CircleOneScript : MonoBehaviour
         if (enemies.Count == 0 && playerInRange==true)
         {
             pressF.SetActive(true);
+            SelectionManager.Instance.Crosshair.SetActive(false);
             if (Input.GetKeyDown(KeyCode.F) && enemies.Count == 0)
             {
                 
-                SceneManager.LoadScene("2.krug");
+                SceneManager.LoadScene("2.krug2");
             }
         }
         else
         {
             pressF.SetActive(false);
+            SelectionManager.Instance.Crosshair.SetActive(true);
         }
     }
 

@@ -121,7 +121,7 @@ public class SecondNPC : MonoBehaviour
         currentDialogueIndex = 0;
         animator.SetBool("isTalking", false);
         complitedDialog = true;
-        SceneManager.LoadScene("4.krug");
+        SceneManager.LoadScene("4.krug2");
     }
 
     public void LookAtPlayer()

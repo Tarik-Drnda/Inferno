@@ -27,7 +27,7 @@ public class CircleFiveScript : MonoBehaviour
         
         if (playerInRange == true)
         {
-            SceneManager.LoadScene("6.krug");
+            SceneManager.LoadScene("6.krug2");
         }
         infoTabText.GetComponent<Text>().text = "Stay in the boat!";
         if (gm.GetComponent<BloodWater>().playerInRange == true)

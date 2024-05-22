@@ -25,7 +25,7 @@ public class CircleFourScript : MonoBehaviour
         if (playerInRange == true)
         {
             pressF.SetActive(true);
-            SceneManager.LoadScene("5.krug");
+            SceneManager.LoadScene("5.krug2");
         }
         else
         {

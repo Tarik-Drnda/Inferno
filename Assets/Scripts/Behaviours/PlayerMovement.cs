@@ -30,6 +30,9 @@ public class PlayerMovement : MonoBehaviour
     public float fallDamageThreshold = 5f; 
     public float damageMultiplier = 2f; 
 
+    private bool isOnIce = false; 
+    private float iceSlideSpeed = 0f; 
+
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
@@ -41,6 +44,12 @@ public class PlayerMovement : MonoBehaviour
         {
             Movement();
         }
+    }
+
+    public void SetIsOnIce(bool onIce, float slideSpeed)
+    {
+        isOnIce = onIce;
+        iceSlideSpeed = slideSpeed;
     }
 
     public void Movement()
@@ -72,50 +81,61 @@ public class PlayerMovement : MonoBehaviour
 
         Vector3 move = transform.right * x + transform.forward * z;
 
-        if (IsOnSlope(out RaycastHit slopeHit))
+        if (isOnIce)
         {
-            float slopeAngle = Vector3.Angle(Vector3.up, slopeHit.normal);
-            Debug.Log("Slope angle: " + slopeAngle);
-
-            if (slopeAngle > maxSlopeAngle)
+            // Ice sliding logic
+            Vector3 slideDirection = new Vector3(move.x, 0, move.z).normalized;
+            controller.Move(slideDirection * iceSlideSpeed * Time.deltaTime);
+            velocity.y += gravity * Time.deltaTime;
+            controller.Move(velocity * Time.deltaTime);
+        }
+        else
+        {
+            if (IsOnSlope(out RaycastHit slopeHit))
             {
-                Vector3 slideDirection = Vector3.ProjectOnPlane(move, slopeHit.normal).normalized;
-                controller.Move(slideDirection * speed * Time.deltaTime);
-                Debug.Log("Sliding down slope.");
+                float slopeAngle = Vector3.Angle(Vector3.up, slopeHit.normal);
+                Debug.Log("Slope angle: " + slopeAngle);
+
+                if (slopeAngle > maxSlopeAngle)
+                {
+                    Vector3 slideDirection = Vector3.ProjectOnPlane(move, slopeHit.normal).normalized;
+                    controller.Move(slideDirection * speed * Time.deltaTime);
+                    Debug.Log("Sliding down slope.");
+                }
+                else
+                {
+                    controller.Move(move * speed * Time.deltaTime);
+                    Debug.Log("Moving normally on slope.");
+                }
             }
             else
             {
                 controller.Move(move * speed * Time.deltaTime);
-                Debug.Log("Moving normally on slope.");
+                Debug.Log("Moving normally.");
             }
-        }
-        else
-        {
-            controller.Move(move * speed * Time.deltaTime);
-            Debug.Log("Moving normally.");
-        }
 
-        if (Input.GetButtonDown("Jump") && isGrounded)
-        {
-            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
-            SoundManager.Instance.PlaySound(SoundManager.Instance.jumpingSound);
-        }
+            if (Input.GetButtonDown("Jump") && isGrounded)
+            {
+                velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+                SoundManager.Instance.PlaySound(SoundManager.Instance.jumpingSound);
+            }
 
-        if (Input.GetKey(KeyCode.LeftShift) && isGrounded && PlayerState.Instance.currentCalories > 0)
-        {
-            isRunning = true;
-            SoundManager.Instance.PlaySound(SoundManager.Instance.runningSound);
-            speed = runSpeed;
-        }
-        else
-        {
-            isRunning = false;
-            speed = 12f;
-        }
+            if (Input.GetKey(KeyCode.LeftShift) && isGrounded && PlayerState.Instance.currentCalories > 0)
+            {
+                isRunning = true;
+                SoundManager.Instance.PlaySound(SoundManager.Instance.runningSound);
+                speed = runSpeed;
+            }
+            else
+            {
+                isRunning = false;
+                speed = 12f;
+            }
 
-        velocity.y += gravity * Time.deltaTime;
+            velocity.y += gravity * Time.deltaTime;
 
-        controller.Move(velocity * Time.deltaTime);
+            controller.Move(velocity * Time.deltaTime);
+        }
 
         if (lastPosition != gameObject.transform.position && isGrounded && !isRunning)
         {
@@ -143,7 +163,6 @@ public class PlayerMovement : MonoBehaviour
     private void ApplyFallDamage(float fallDistance)
     {
         float damage = (fallDistance - fallDamageThreshold) * damageMultiplier;
-        PlayerState.Instance.currentHealth-=(int)damage; 
-       
+        PlayerState.Instance.currentHealth -= (int)damage; 
     }
 }
