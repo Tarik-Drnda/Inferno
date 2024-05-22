@@ -48,7 +48,7 @@ public class SaveManager : MonoBehaviour
 
         data.playerData = getPlayerData();
         data.enviromentData = getEnviromentData();
-        
+        data.sceneName = SceneManager.GetActiveScene().name; 
         SavingTypeSwitch(data,slotNumber);
     }
 
@@ -187,7 +187,9 @@ public class SaveManager : MonoBehaviour
     {
         ActivateLoadingScreen();
         isLoading = true;
-        SceneManager.LoadScene("0.krug");
+        AllGameData data = LoadingTypeSwitch(slotNumber);
+        string sceneToLoad = data.sceneName;
+        SceneManager.LoadScene(sceneToLoad);
         StartCoroutine(DelayedLoading(slotNumber));
     }
 
@@ -312,7 +314,7 @@ public class SaveManager : MonoBehaviour
     {
         if (isSavnigJason)
         {
-            if (File.Exists(jsonPathProject+ fileName + slotNumber +".json"))//SaveGame1.json
+            if (File.Exists(jsonPathProject+ fileName + slotNumber +".json"))
             {
                 return true;
             }

@@ -46,7 +46,7 @@ public class NextLevelScript : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.F) && playerInRange == true )
         {
-            SceneManager.LoadScene("1.krug");
+            SceneManager.LoadScene("1.krug2");
         }
 
     }

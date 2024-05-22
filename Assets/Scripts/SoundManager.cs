@@ -15,9 +15,8 @@ public class SoundManager : MonoBehaviour
     public AudioSource enemySound;
 
     public AudioSource startingZoneBGMusic;
-    public AudioSource BGMusic;
+   
     
-    public AudioSource enemyHit;
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -37,5 +36,18 @@ public class SoundManager : MonoBehaviour
             soundToPlay.Play();
         }
     }
+    
+    public void StopAllSoundsAndPlayDesired(AudioSource desiredAudioSource)
+    {
+        AudioSource[] allAudioSources = FindObjectsOfType<AudioSource>();
+
+        foreach (AudioSource audioSource in allAudioSources)
+        {
+            audioSource.Stop();
+        }
+
+        desiredAudioSource.Play();
+    }
+
     
 }

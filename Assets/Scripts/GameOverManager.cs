@@ -25,8 +25,10 @@ public class GameOverManager : MonoBehaviour
         if (!isGameOver)
         {
             deathCanvas.SetActive(true);
-            SoundManager.Instance.startingZoneBGMusic.Stop();
-            SoundManager.Instance.PlaySound(SoundManager.Instance.menuSound);
+            //SoundManager.Instance.startingZoneBGMusic.Stop();
+            
+            SoundManager.Instance.StopAllSoundsAndPlayDesired(SoundManager.Instance.menuSound);
+           // SoundManager.Instance.PlaySound(SoundManager.Instance.menuSound);
             isGameOver = true;
             Invoke("ReturnToMainMenu", 7f); 
            

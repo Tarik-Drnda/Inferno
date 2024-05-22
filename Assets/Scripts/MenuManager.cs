@@ -31,24 +31,24 @@ public class MenuManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.M) && !isMenuOpen)
         {
-           
-            UICanvas.SetActive(false);
+           isMenuOpen = true;
+
             menuCanvas.SetActive(true);
-            isMenuOpen = true;
+            UICanvas.SetActive(false);
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
 
            SelectionManager.Instance.DisableSelection();
             SelectionManager.Instance.GetComponent<SelectionManager>().enabled = false;
-            
+
         }
         else if (Input.GetKeyDown(KeyCode.M) && isMenuOpen)
         {
             saveMenu.SetActive(false);
             settingsMenu.SetActive(false);
-            menu.SetActive(true);
-           
-            UICanvas.SetActive(true);
+            menu.SetActive(false);
+
+            UICanvas.SetActive(false);
             menuCanvas.SetActive(false);
             isMenuOpen = false;
 
@@ -56,15 +56,16 @@ public class MenuManager : MonoBehaviour
             if (InventorySystem.Instance.isOpen == false)
             {
                Cursor.lockState = CursorLockMode.Locked;
-                
-               Cursor.visible = false; 
+
+               Cursor.visible = false;
             }
-            
-            
+
+
            SelectionManager.Instance.EnableSelection();
             SelectionManager.Instance.GetComponent<SelectionManager>().enabled = true;
         }
     }
 
- 
+
 }
+
