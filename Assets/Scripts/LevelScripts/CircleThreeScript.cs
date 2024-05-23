@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class CircleThreeScript : MonoBehaviour
@@ -15,6 +16,7 @@ public class CircleThreeScript : MonoBehaviour
     private GameObject gm;
     void Start()
     {
+        SaveManager.Instance.LoadGame(0);
         gm = GameObject.FindWithTag("NPC2");
         StartCoroutine(DisplayInfo());
     }
@@ -33,14 +35,18 @@ public class CircleThreeScript : MonoBehaviour
         if (enemies.Count == 0)
         {
             infoTabText.GetComponent<Text>().text = "Talk with NPC to continue";
-            
             gm.SetActive(true);
+            SaveManager.Instance.SaveGame(0);
+            SceneManager.LoadScene("4.krug2");
         }
         else
         {
             
             gm.SetActive(false);
         }
+        
+        
+        
     }
     public IEnumerator DisplayInfo()
     {

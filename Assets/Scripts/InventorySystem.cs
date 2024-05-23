@@ -1,7 +1,4 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Text;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,7 +11,7 @@ public class InventorySystem : MonoBehaviour
  
     public GameObject inventoryScreenUI;
 
-    public List<GameObject> slotList = new List<GameObject>();
+    public List<GameObject> slotList = new List<GameObject>(15);
     public List<string> itemList = new List<string>();
     private GameObject itemToAdd;
     private GameObject whatSlotToEquip;
@@ -39,6 +36,9 @@ public class InventorySystem : MonoBehaviour
         {
             Instance = this;
         }
+        
+        DontDestroyOnLoad(gameObject);
+
     }
  
  
@@ -90,27 +90,23 @@ public class InventorySystem : MonoBehaviour
             isOpen = false;
         }
     }
-
-
+    
     public void AddToInventory(string itemName)
     {
-       // if (SaveManager.Instance.isLoading == false)
-       //{
-         //   SoundManager.Instance.PlaySound(SoundManager.Instance.pickUpItem);
-        //}
-           
+        if (SaveManager.Instance.isLoading == false)
+        {
+           SoundManager.Instance.PlaySound(SoundManager.Instance.pickUpItem);
+        }
         
-        
-            whatSlotToEquip = FindNextEmptySlot();
-            itemToAdd = Instantiate(Resources.Load<GameObject>(itemName),
-                whatSlotToEquip.transform.position, whatSlotToEquip.transform.rotation);
-            itemToAdd.transform.SetParent(whatSlotToEquip.transform);
+        whatSlotToEquip = FindNextEmptySlot();
+        itemToAdd = Instantiate(Resources.Load<GameObject>(itemName),
+            whatSlotToEquip.transform.position, whatSlotToEquip.transform.rotation);
+        itemToAdd.transform.SetParent(whatSlotToEquip.transform);
 
-            TriggerPickUpPop(itemName,itemToAdd.GetComponent<Image>().sprite);
-            Invoke("TriggerPickUpDiss",3f);
-            
-            itemList.Add(itemName);
+        TriggerPickUpPop(itemName,itemToAdd.GetComponent<Image>().sprite);
+        Invoke("TriggerPickUpDiss",3f);
         
+        itemList.Add(itemName);
     }
 
    public void TriggerPickUpPop(string itemName, Sprite itemSprite)
@@ -130,7 +126,7 @@ public class InventorySystem : MonoBehaviour
     {
         foreach (GameObject slot in slotList)
         {
-            if (slot.transform.childCount ==0)
+            if (slot.transform.childCount == 0)
             {
                 return slot;
             }
@@ -148,13 +144,10 @@ public class InventorySystem : MonoBehaviour
             {
                 counter += 1;
             }
-
-          
         }  
         if (counter == 15 )
         {
             return false;
-                         
         }
         else
         {

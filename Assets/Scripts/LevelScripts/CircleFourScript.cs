@@ -12,19 +12,19 @@ public class CircleFourScript : MonoBehaviour
 
     private bool playerInRange;
     public GameObject pressF;
-    // Start is called before the first frame update
     void Start()
     {
+        SaveManager.Instance.LoadGame(0);
         StartCoroutine(DisplayInfo());
     }
 
-    // Update is called once per frame
     void Update()
     {
         infoTabText.GetComponent<Text>().text = "Find a way to exit a gold canyon";
         if (playerInRange == true)
         {
             pressF.SetActive(true);
+            SaveManager.Instance.SaveGame(0);
             SceneManager.LoadScene("5.krug2");
         }
         else

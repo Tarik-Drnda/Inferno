@@ -3496,7 +3496,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ItemInfoUI: {fileID: 1236769041}
   inventoryScreenUI: {fileID: 74495316}
-  slotList: []
+  slotList:
+  - {fileID: 349651136}
+  - {fileID: 1390801646}
+  - {fileID: 573669568}
+  - {fileID: 422650078}
+  - {fileID: 1796586558}
+  - {fileID: 1488261674}
+  - {fileID: 1803163680}
+  - {fileID: 355266373}
+  - {fileID: 656578100}
+  - {fileID: 866126750}
+  - {fileID: 2139108637}
+  - {fileID: 624091604}
+  - {fileID: 1345885651}
+  - {fileID: 1694838062}
+  - {fileID: 787386567}
   itemList: []
   isOpen: 0
   pickupAlert: {fileID: 20266986}

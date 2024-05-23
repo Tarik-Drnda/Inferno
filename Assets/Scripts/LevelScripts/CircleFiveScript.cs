@@ -13,20 +13,20 @@ public class CircleFiveScript : MonoBehaviour
     public GameObject pressF;
 
     private GameObject gm;
-    // Start is called before the first frame update
     void Start()
     {
+        SaveManager.Instance.LoadGame(0);
         infoTab.SetActive(true);
         infoTabText.SetActive(true);
         gm = GameObject.FindWithTag("Water");
     }
 
-    // Update is called once per frame
     void Update()
     {
         
         if (playerInRange == true)
         {
+            SaveManager.Instance.SaveGame(0);
             SceneManager.LoadScene("6.krug2");
         }
         infoTabText.GetComponent<Text>().text = "Stay in the boat!";

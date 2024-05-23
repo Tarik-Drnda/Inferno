@@ -17,6 +17,7 @@ public class CircleOneScript : MonoBehaviour
     private bool playerInRange;
     void Start()
     {
+       SaveManager.Instance.LoadGame(0);
         StartCoroutine(DisplayInfo());
     }
 
@@ -43,7 +44,7 @@ public class CircleOneScript : MonoBehaviour
             SelectionManager.Instance.Crosshair.SetActive(false);
             if (Input.GetKeyDown(KeyCode.F) && enemies.Count == 0)
             {
-                
+                SaveManager.Instance.SaveGame(0);
                 SceneManager.LoadScene("2.krug2");
             }
         }

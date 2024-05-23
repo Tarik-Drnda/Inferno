@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -43,6 +44,16 @@ public class PlayerMovement : MonoBehaviour
         if (DialogSystem.Instance.dialogUIActive == false)
         {
             Movement();
+        }
+        
+        if (Input.GetKeyDown(KeyCode.RightBracket))
+        {
+            JumpToNextLevel();
+        }
+        
+        if (Input.GetKeyDown(KeyCode.LeftBracket))
+        {
+            JumpToPreviousLevel();;
         }
     }
 
@@ -166,4 +177,19 @@ public class PlayerMovement : MonoBehaviour
         float damage = (fallDistance - fallDamageThreshold) * damageMultiplier;
         PlayerState.Instance.currentHealth -= (int)damage; 
     }
+
+    private void JumpToNextLevel()
+    {
+        SaveManager.Instance.SaveGame(0);
+        var sceneIndex = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(++sceneIndex);
+    }
+    
+    private void JumpToPreviousLevel()
+    {
+        SaveManager.Instance.SaveGame(0);
+        var sceneIndex = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(--sceneIndex);
+    }
+    
 }

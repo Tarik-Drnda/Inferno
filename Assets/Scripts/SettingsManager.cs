@@ -46,11 +46,11 @@ public class SettingsManager : MonoBehaviour
             print("Saved to Player Pref");
         });
 
-        if (SaveManager.Instance.isLoading == true)
-        {
-            StartCoroutine(LoadAndApplySettings());
-       }
-       
+      //  if (SaveManager.Instance.isLoading == true)
+        //{
+          //  StartCoroutine(LoadAndApplySettings());
+       //}
+
 
     }
     private void UpdateMasterVolume(float volume)

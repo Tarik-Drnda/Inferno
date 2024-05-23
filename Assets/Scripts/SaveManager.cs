@@ -136,7 +136,7 @@ public class SaveManager : MonoBehaviour
 
     }
 
-    private void SetEnviromentData(EnviromentData enviromentData)
+    public void SetEnviromentData(EnviromentData enviromentData)
     {
         foreach (Transform itemType in EnviromentManager.Instance.allItems.transform)
         {
@@ -152,7 +152,7 @@ public class SaveManager : MonoBehaviour
         InventorySystem.Instance.itemsPickedup = enviromentData.pickedupItems;
     }
 
-    private void SetPlayerData(PlayerData playerData)
+    public void SetPlayerData(PlayerData playerData)
     {
 
         PlayerState.Instance.currentHealth = playerData.playerStats[0];
@@ -252,7 +252,7 @@ public class SaveManager : MonoBehaviour
         using (StreamReader reader = new StreamReader(jsonPathProject + fileName + slotNumber + ".json"))
         {
             string json = reader.ReadToEnd();
-             string decrypted = EncryptionDecryption(json);
+            string decrypted = EncryptionDecryption(json);
             AllGameData data = JsonUtility.FromJson<AllGameData>(json);
             return data;
         }

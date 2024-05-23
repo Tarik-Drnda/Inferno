@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.9065017, g: 0.75800765, b: 0.62223154, a: 1}
+  m_IndirectSpecularColor: {r: 0.9064091, g: 0.75829023, b: 0.6227551, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -12710,7 +12710,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ItemInfoUI: {fileID: 1173200738}
   inventoryScreenUI: {fileID: 1535443293}
-  slotList: []
+  slotList:
+  - {fileID: 1344319876}
+  - {fileID: 625095443}
+  - {fileID: 145089346}
+  - {fileID: 1229479113}
+  - {fileID: 572187054}
+  - {fileID: 714140510}
+  - {fileID: 259644088}
+  - {fileID: 775467060}
+  - {fileID: 1403741503}
+  - {fileID: 2079048933}
+  - {fileID: 1419685828}
+  - {fileID: 1604602191}
+  - {fileID: 1981533793}
+  - {fileID: 482767753}
+  - {fileID: 756335779}
   itemList: []
   isOpen: 0
   pickupAlert: {fileID: 1951585167}

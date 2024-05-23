@@ -10,19 +10,19 @@ public class CircleSevenScript : MonoBehaviour
     public GameObject infoTabText;
     private GameObject gm;
     private bool playerInRange;
-    // Start is called before the first frame update
     void Start()
     {
+        SaveManager.Instance.LoadGame(0);
         infoTab.SetActive(true);
         infoTabText.SetActive(true);
         gm = GameObject.FindWithTag("Water");
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (playerInRange == true)
         {
+            SaveManager.Instance.SaveGame(0);
            SceneManager.LoadScene("8.krug2");
         }
         infoTabText.GetComponent<Text>().text = "Stay in the boat!";

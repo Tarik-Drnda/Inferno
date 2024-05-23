@@ -5,9 +5,10 @@ using UnityEngine.UI;
 
 public class EnviromentManager : MonoBehaviour
 {
-    
     public static EnviromentManager Instance { get; set; }
     public GameObject allItems;
+    
+    
     
     private void Awake()
     {
@@ -19,6 +20,9 @@ public class EnviromentManager : MonoBehaviour
         {
             Instance = this;
         }
+        
+        DontDestroyOnLoad(gameObject);
+
     }
 
    

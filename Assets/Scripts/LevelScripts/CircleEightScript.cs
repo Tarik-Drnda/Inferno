@@ -10,15 +10,13 @@ public class CircleEightScript : MonoBehaviour
     public GameObject infoTabText;
     public GameObject gm;
     private bool playerInRange;
-    // Start is called before the first frame update
     void Start()
     {
+        SaveManager.Instance.LoadGame(0);
         infoTab.SetActive(true);
         infoTabText.SetActive(true);
-        
     }
 
-    // Update is called once per frame
     void Update()
     {
         infoTabText.GetComponent<Text>().text = "Defeat Demons to exit the arena!";
@@ -46,6 +44,7 @@ public class CircleEightScript : MonoBehaviour
     private IEnumerator StartAnotherLevel()
     {
         yield return new WaitForSeconds(3f);
+        SaveManager.Instance.SaveGame(0);
         SceneManager.LoadScene("9.krug2");
     }
 }

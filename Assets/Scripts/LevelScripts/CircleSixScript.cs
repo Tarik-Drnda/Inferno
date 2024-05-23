@@ -11,22 +11,25 @@ public class CircleSixScript : MonoBehaviour
     public LayerMask waterLayer;
     private bool playerInRange;
     public GameObject pressF;
-    // Start is called before the first frame update
     void Start()
     {
+        SaveManager.Instance.LoadGame(0);
         infoTab.SetActive(true);
         infoTabText.SetActive(true);
     }
 
-    // Update is called once per frame
     void Update()
     {
         infoTabText.GetComponent<Text>().text = "Find a way to exit a graveyard";
         if (playerInRange == true)
         {
             pressF.SetActive(true);
-            if(Input.GetKeyDown((KeyCode.F)))
+
+            if (Input.GetKeyDown((KeyCode.F)))
+            {
+                SaveManager.Instance.SaveGame(0);
                 SceneManager.LoadScene("7.krug2");
+            }
         }
         else
         {

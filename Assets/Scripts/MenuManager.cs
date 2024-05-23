@@ -33,7 +33,7 @@ public class MenuManager : MonoBehaviour
         {
            isMenuOpen = true;
 
-            menuCanvas.SetActive(true);
+           menuCanvas.SetActive(true);
             UICanvas.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;

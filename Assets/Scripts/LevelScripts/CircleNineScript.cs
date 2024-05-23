@@ -16,13 +16,12 @@ public class CircleNineScript : MonoBehaviour
     private bool _dialogPlayed1=false;
     public AudioSource dialog2;
     private bool _dialogPlayed2=false;
-    // Start is called before the first frame update
     void Start()
     {
+        SaveManager.Instance.LoadGame(0);
         StartCoroutine(DisplayInfo());
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (_dialogPlayed1 == false)

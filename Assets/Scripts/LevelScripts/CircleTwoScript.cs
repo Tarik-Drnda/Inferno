@@ -12,19 +12,17 @@ public class CircleTwoScript : MonoBehaviour
 
     private bool playerInRange;
     public GameObject pressF;
-    // Start is called before the first frame update
     void Start()
     {
-        
+        SaveManager.Instance.LoadGame(0);
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
         if (playerInRange == true)
         {
             pressF.SetActive(true);
+            SaveManager.Instance.SaveGame(0);
             SceneManager.LoadScene("3.krug2");
         }
         else
