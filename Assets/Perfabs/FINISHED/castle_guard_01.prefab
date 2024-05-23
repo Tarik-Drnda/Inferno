@@ -119,7 +119,7 @@ MonoBehaviour:
   playerInRange: 0
   _isDead: 0
   currentHealth: 0
-  maxHealth: 40
+  maxHealth: 70
 --- !u!195 &3687679969648254849
 NavMeshAgent:
   m_ObjectHideFlags: 0

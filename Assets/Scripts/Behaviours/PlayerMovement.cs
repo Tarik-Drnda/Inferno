@@ -83,7 +83,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (isOnIce)
         {
-            // Ice sliding logic
+            
             Vector3 slideDirection = new Vector3(move.x, 0, move.z).normalized;
             controller.Move(slideDirection * iceSlideSpeed * Time.deltaTime);
             velocity.y += gravity * Time.deltaTime;
@@ -120,7 +120,7 @@ public class PlayerMovement : MonoBehaviour
                 SoundManager.Instance.PlaySound(SoundManager.Instance.jumpingSound);
             }
 
-            if (Input.GetKey(KeyCode.LeftShift) && isGrounded && PlayerState.Instance.currentCalories > 0)
+            if (Input.GetKey(KeyCode.LeftShift) &&isGrounded && PlayerState.Instance.currentCalories > 0)
             {
                 isRunning = true;
                 SoundManager.Instance.PlaySound(SoundManager.Instance.runningSound);
@@ -129,6 +129,7 @@ public class PlayerMovement : MonoBehaviour
             else
             {
                 isRunning = false;
+                SoundManager.Instance.runningSound.Stop();
                 speed = 12f;
             }
 

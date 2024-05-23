@@ -166,7 +166,7 @@ MonoBehaviour:
   playerInRange: 0
   _isDead: 0
   currentHealth: 0
-  maxHealth: 50
+  maxHealth: 80
 --- !u!65 &4039792160412294574
 BoxCollider:
   m_ObjectHideFlags: 0

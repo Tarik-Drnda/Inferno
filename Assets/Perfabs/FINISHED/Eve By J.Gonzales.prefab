@@ -198,4 +198,4 @@ MonoBehaviour:
   playerInRange: 0
   _isDead: 0
   currentHealth: 0
-  maxHealth: 40
+  maxHealth: 75

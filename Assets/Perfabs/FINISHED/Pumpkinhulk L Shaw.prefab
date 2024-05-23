@@ -199,8 +199,8 @@ MonoBehaviour:
   playerTransform: {fileID: 0}
   wantedDistance: 70
   bloodScreen: {fileID: 0}
-  enemyName: Demon of anger
+  enemyName: Soul Tormentor
   playerInRange: 0
   _isDead: 0
   currentHealth: 0
-  maxHealth: 0
+  maxHealth: 80

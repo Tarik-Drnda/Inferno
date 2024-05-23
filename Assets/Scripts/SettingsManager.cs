@@ -48,8 +48,8 @@ public class SettingsManager : MonoBehaviour
 
         if (SaveManager.Instance.isLoading == true)
         {
-             StartCoroutine(LoadAndApplySettings());
-        }
+            StartCoroutine(LoadAndApplySettings());
+       }
        
 
     }

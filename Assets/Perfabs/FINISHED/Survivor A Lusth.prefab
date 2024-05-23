@@ -189,8 +189,8 @@ MonoBehaviour:
   playerTransform: {fileID: 0}
   wantedDistance: 40
   bloodScreen: {fileID: 0}
-  enemyName: Demon of lusth
+  enemyName: Hellish Inquisitor
   playerInRange: 0
   _isDead: 0
   currentHealth: 0
-  maxHealth: 0
+  maxHealth: 90

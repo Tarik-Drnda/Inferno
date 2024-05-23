@@ -95,8 +95,8 @@ public class InventorySystem : MonoBehaviour
     public void AddToInventory(string itemName)
     {
        // if (SaveManager.Instance.isLoading == false)
-       ///{
-        ///    SoundManager.Instance.PlaySound(SoundManager.Instance.pickUpItem);
+       //{
+         //   SoundManager.Instance.PlaySound(SoundManager.Instance.pickUpItem);
         //}
            
         

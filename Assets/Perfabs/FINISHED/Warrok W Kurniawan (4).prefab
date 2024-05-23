@@ -125,11 +125,11 @@ MonoBehaviour:
   playerTransform: {fileID: 0}
   wantedDistance: 35
   bloodScreen: {fileID: 0}
-  enemyName: Warrok
+  enemyName: Lucifer's Guardian
   playerInRange: 0
   _isDead: 0
   currentHealth: 0
-  maxHealth: 60
+  maxHealth: 120
 --- !u!65 &1764646319067860563
 BoxCollider:
   m_ObjectHideFlags: 0
