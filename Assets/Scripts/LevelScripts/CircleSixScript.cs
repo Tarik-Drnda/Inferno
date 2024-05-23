@@ -26,7 +26,7 @@ public class CircleSixScript : MonoBehaviour
         {
             pressF.SetActive(true);
             if(Input.GetKeyDown((KeyCode.F)))
-                SceneManager.LoadScene("7.krug");
+                SceneManager.LoadScene("7.krug2");
         }
         else
         {
