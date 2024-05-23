@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37179118, g: 0.4320974, b: 0.45179528, a: 1}
+  m_IndirectSpecularColor: {r: 0.37184536, g: 0.43210876, b: 0.45182383, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -26191,47 +26191,47 @@ PrefabInstance:
       propertyPath: ItemName
       value: Health potion
       objectReference: {fileID: 0}
-    - target: {fileID: 1305883699301654, guid: 093a44e6b1a384df88fabf2976ac0055, type: 3}
+    - target: {fileID: 1305883699301654, guid: d174ddc390a9ef649a4425df55d53691, type: 3}
       propertyPath: m_Name
-      value: Potion3_Model
+      value: Health_potion_Model
       objectReference: {fileID: 0}
-    - target: {fileID: 4083679350173494, guid: 093a44e6b1a384df88fabf2976ac0055, type: 3}
+    - target: {fileID: 4083679350173494, guid: d174ddc390a9ef649a4425df55d53691, type: 3}
       propertyPath: m_LocalPosition.x
       value: -388.27814
       objectReference: {fileID: 0}
-    - target: {fileID: 4083679350173494, guid: 093a44e6b1a384df88fabf2976ac0055, type: 3}
+    - target: {fileID: 4083679350173494, guid: d174ddc390a9ef649a4425df55d53691, type: 3}
       propertyPath: m_LocalPosition.y
       value: -323.46426
       objectReference: {fileID: 0}
-    - target: {fileID: 4083679350173494, guid: 093a44e6b1a384df88fabf2976ac0055, type: 3}
+    - target: {fileID: 4083679350173494, guid: d174ddc390a9ef649a4425df55d53691, type: 3}
       propertyPath: m_LocalPosition.z
       value: 64.70522
       objectReference: {fileID: 0}
-    - target: {fileID: 4083679350173494, guid: 093a44e6b1a384df88fabf2976ac0055, type: 3}
+    - target: {fileID: 4083679350173494, guid: d174ddc390a9ef649a4425df55d53691, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4083679350173494, guid: 093a44e6b1a384df88fabf2976ac0055, type: 3}
+    - target: {fileID: 4083679350173494, guid: d174ddc390a9ef649a4425df55d53691, type: 3}
       propertyPath: m_LocalRotation.x
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 4083679350173494, guid: 093a44e6b1a384df88fabf2976ac0055, type: 3}
+    - target: {fileID: 4083679350173494, guid: d174ddc390a9ef649a4425df55d53691, type: 3}
       propertyPath: m_LocalRotation.y
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 4083679350173494, guid: 093a44e6b1a384df88fabf2976ac0055, type: 3}
+    - target: {fileID: 4083679350173494, guid: d174ddc390a9ef649a4425df55d53691, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 4083679350173494, guid: 093a44e6b1a384df88fabf2976ac0055, type: 3}
+    - target: {fileID: 4083679350173494, guid: d174ddc390a9ef649a4425df55d53691, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4083679350173494, guid: 093a44e6b1a384df88fabf2976ac0055, type: 3}
+    - target: {fileID: 4083679350173494, guid: d174ddc390a9ef649a4425df55d53691, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4083679350173494, guid: 093a44e6b1a384df88fabf2976ac0055, type: 3}
+    - target: {fileID: 4083679350173494, guid: d174ddc390a9ef649a4425df55d53691, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
@@ -26245,10 +26245,10 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 093a44e6b1a384df88fabf2976ac0055, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: d174ddc390a9ef649a4425df55d53691, type: 3}
 --- !u!4 &1925857895 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 4083679350173494, guid: 093a44e6b1a384df88fabf2976ac0055,
+  m_CorrespondingSourceObject: {fileID: 4083679350173494, guid: d174ddc390a9ef649a4425df55d53691,
     type: 3}
   m_PrefabInstance: {fileID: 1925857894}
   m_PrefabAsset: {fileID: 0}
@@ -29666,9 +29666,9 @@ SceneRoots:
   - {fileID: 94084677}
   - {fileID: 316752028}
   - {fileID: 1228238959}
+  - {fileID: 639878656790198716}
   - {fileID: 422116923}
   - {fileID: 153329270}
-  - {fileID: 639878656790198716}
   - {fileID: 1080881065}
   - {fileID: 168964470456174319}
   - {fileID: 2077358859}
