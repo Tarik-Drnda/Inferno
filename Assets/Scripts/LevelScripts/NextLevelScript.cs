@@ -29,12 +29,12 @@ public class NextLevelScript : MonoBehaviour
     {
        if (wp.gameObject == null)
        {
-           tabInfo.GetComponent<Text>().text = "Enter through portal in tomb";
+           tabInfo.GetComponent<Text>().text = "Enter through portal in tomb \n You will be aided through the game by your ally Vergilius";
        }
        else
        {
            tabInfo.SetActive(true);
-           tabInfo.GetComponent<Text>().text = "Search a map and find a weapon. \n Enter through portal in tomb";
+           tabInfo.GetComponent<Text>().text = "Search a map and find a weapon. \n Enter through portal in tomb \n You will be aided through the game by your ally Vergilius";
        }
         if (playerInRange == true)
         {

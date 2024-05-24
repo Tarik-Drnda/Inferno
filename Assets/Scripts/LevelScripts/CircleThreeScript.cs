@@ -37,10 +37,13 @@ public class CircleThreeScript : MonoBehaviour
             infoTabText.GetComponent<Text>().text = "Talk with NPC to continue";
             gm.SetActive(true);
             AllGameData data = new AllGameData();
-            data.playerData = GetUpdatedPlayerDataForNextLevel();
-            data.enviromentData = SaveManager.Instance.getEnviromentData();
-            SaveManager.Instance.SavingTypeSwitch(data,0);
-            SceneManager.LoadScene("4.krug2");
+            if (gm.GetComponent<SecondNPC>().complitedDialog == true)
+            {
+                data.playerData = GetUpdatedPlayerDataForNextLevel();
+                data.enviromentData = SaveManager.Instance.getEnviromentData();
+                SaveManager.Instance.SavingTypeSwitch(data, 0);
+                SceneManager.LoadScene("4.krug2");
+            }
         }
         else
         {

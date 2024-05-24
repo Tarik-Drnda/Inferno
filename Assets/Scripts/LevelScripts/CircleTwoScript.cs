@@ -35,15 +35,20 @@ public class CircleTwoScript : MonoBehaviour
         {
             pressF.SetActive(false);
         }
-
+        Debug.Log(NPC.Instance.ComplitedDialog);
         if (NPC.Instance.ComplitedDialog)
         {
+            infoTab.SetActive(true);
             infoTabText.GetComponent<Text>().text = "Find a way to exit a ice canyon";
         }
+
         else
         {
+            infoTab.SetActive(true);
             infoTabText.GetComponent<Text>().text = "Find a way to exit a ice canyon \n Talk with NPC";
         }
+            
+        
     }
     private void OnTriggerEnter(Collider other)
     {

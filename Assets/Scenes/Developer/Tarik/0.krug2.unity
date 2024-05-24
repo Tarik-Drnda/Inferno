@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37179118, g: 0.4320974, b: 0.45179528, a: 1}
+  m_IndirectSpecularColor: {r: 0.37194374, g: 0.43209815, b: 0.45158476, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -19096,8 +19096,8 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 1
+  m_Color: {r: 0.2784314, g: 0.40000004, b: 0.4784314, a: 1}
+  m_Intensity: 7.24
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -19155,13 +19155,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1358193062}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalRotation: {x: 0.19421908, y: -0.5778017, z: 0.14395463, w: 0.779552}
+  m_LocalPosition: {x: 138.7, y: 81.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 27.98, y: -73.091, z: 0}
 --- !u!114 &1358193065
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26942,7 +26942,7 @@ MonoBehaviour:
   jumpingSound: {fileID: 1969829336}
   runningSound: {fileID: 1969829338}
   menuSound: {fileID: 1969829339}
-  swingSound: {fileID: 0}
+  swingSound: {fileID: 1969829340}
   enemySound: {fileID: 0}
   startingZoneBGMusic: {fileID: 1969829339}
 --- !u!82 &1969829334
@@ -27531,7 +27531,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: a37f44cbf8c2a7443a3c361efa2f233a, type: 3}
+  m_audioClip: {fileID: 8300000, guid: de1085c9d1126d043b79e194a8100993, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.6
   m_Pitch: 1

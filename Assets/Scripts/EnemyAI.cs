@@ -99,11 +99,7 @@ public class EnemyAI : MonoBehaviour
        
         if (currentHealth <= 0)
         {
-            _animator.SetTrigger("isDead");
-            this.transform.position = new Vector3(this.transform.position.x,-1.36f,this.transform.position.z);
-            this.GetComponent<NavMeshAgent>().enabled = false;
-            _isDead = true;
-            this.GetComponent<Collider>().enabled = false;
+
             Destroy(this.gameObject);
             
             
