@@ -46,15 +46,7 @@ public class PlayerMovement : MonoBehaviour
             Movement();
         }
         
-        if (Input.GetKeyDown(KeyCode.RightBracket))
-        {
-            JumpToNextLevel();
-        }
-        
-        if (Input.GetKeyDown(KeyCode.LeftBracket))
-        {
-            JumpToPreviousLevel();;
-        }
+      
     }
 
     public void SetIsOnIce(bool onIce, float slideSpeed)
@@ -178,18 +170,6 @@ public class PlayerMovement : MonoBehaviour
         PlayerState.Instance.currentHealth -= (int)damage; 
     }
 
-    private void JumpToNextLevel()
-    {
-        SaveManager.Instance.SaveGame(0);
-        var sceneIndex = SceneManager.GetActiveScene().buildIndex;
-        SceneManager.LoadScene(++sceneIndex);
-    }
-    
-    private void JumpToPreviousLevel()
-    {
-        SaveManager.Instance.SaveGame(0);
-        var sceneIndex = SceneManager.GetActiveScene().buildIndex;
-        SceneManager.LoadScene(--sceneIndex);
-    }
+ 
     
 }

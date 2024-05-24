@@ -23104,7 +23104,7 @@ GameObject:
   - component: {fileID: 1676423763}
   - component: {fileID: 1676423762}
   m_Layer: 5
-  m_Name: Naziv
+  m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25530,7 +25530,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   quickSlotsPanel: {fileID: 947091510}
-  quickSlotsList: []
+  quickSlotsList:
+  - {fileID: 762216309}
+  - {fileID: 1288835667}
+  - {fileID: 213933354}
+  - {fileID: 1388818534}
   itemList: []
   numbersHolder: {fileID: 794044851}
   selectedNumber: -1
@@ -27241,7 +27245,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: c70a665d318b83441956f0fca3755b68, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.45
+  m_Volume: 0.51
   m_Pitch: 0.4
   Loop: 1
   Mute: 0

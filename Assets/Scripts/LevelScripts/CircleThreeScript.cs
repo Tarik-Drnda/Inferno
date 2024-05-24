@@ -36,7 +36,10 @@ public class CircleThreeScript : MonoBehaviour
         {
             infoTabText.GetComponent<Text>().text = "Talk with NPC to continue";
             gm.SetActive(true);
-            SaveManager.Instance.SaveGame(0);
+            AllGameData data = new AllGameData();
+            data.playerData = GetUpdatedPlayerDataForNextLevel();
+            data.enviromentData = SaveManager.Instance.getEnviromentData();
+            SaveManager.Instance.SavingTypeSwitch(data,0);
             SceneManager.LoadScene("4.krug2");
         }
         else
@@ -53,4 +56,44 @@ public class CircleThreeScript : MonoBehaviour
         yield return new WaitForSeconds(5f);
         infoTab.SetActive(true);
     }
+    
+    private PlayerData GetUpdatedPlayerDataForNextLevel()
+    {
+        float[] playerStats = new float[2];
+        playerStats[0] = PlayerState.Instance.currentHealth;
+        playerStats[1] = PlayerState.Instance.currentCalories;
+
+        float[] newPlayerPosAndRot = new float[6];
+        newPlayerPosAndRot[0] = 500.6f; 
+        newPlayerPosAndRot[1] = 35f;  
+        newPlayerPosAndRot[2] = 45.32f; 
+
+        newPlayerPosAndRot[3] = 0f;  
+        newPlayerPosAndRot[4] = 0f;  
+        newPlayerPosAndRot[5] = 0f;  
+
+        string[] inventory = InventorySystem.Instance.itemList.ToArray();
+        string[] quickSlots = GetQuickSlotsContent();
+
+        return new PlayerData(playerStats, newPlayerPosAndRot, inventory, quickSlots);
+    }
+
+    private string[] GetQuickSlotsContent()
+    {
+        List<string> temp = new List<string>();
+        foreach (GameObject slot in EquipSystem.Instance.quickSlotsList)
+        {
+            if (slot.transform.childCount != 0)
+            {
+                string name  = slot.transform.GetChild(0).name;
+                string str2 = "(Clone)";
+                string cleanName=name.Replace(str2, "");
+                temp.Add(cleanName);
+            }
+        }
+        return temp.ToArray();
+    }
+    
+    
+    
 }

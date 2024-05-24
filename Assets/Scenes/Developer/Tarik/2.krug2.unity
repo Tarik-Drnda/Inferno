@@ -9828,7 +9828,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   quickSlotsPanel: {fileID: 36903810}
-  quickSlotsList: []
+  quickSlotsList:
+  - {fileID: 932487843}
+  - {fileID: 1607565770}
+  - {fileID: 543092235}
+  - {fileID: 1610436078}
   itemList: []
   numbersHolder: {fileID: 1090860310}
   selectedNumber: -1

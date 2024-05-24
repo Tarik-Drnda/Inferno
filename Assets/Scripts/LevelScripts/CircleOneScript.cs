@@ -44,7 +44,11 @@ public class CircleOneScript : MonoBehaviour
             SelectionManager.Instance.Crosshair.SetActive(false);
             if (Input.GetKeyDown(KeyCode.F) && enemies.Count == 0)
             {
-                SaveManager.Instance.SaveGame(0);
+                AllGameData data = new AllGameData();
+                data.playerData = GetUpdatedPlayerDataForNextLevel();
+                data.enviromentData = SaveManager.Instance.getEnviromentData();
+                SaveManager.Instance.SavingTypeSwitch(data,0);
+                
                 SceneManager.LoadScene("2.krug2");
             }
         }
@@ -75,4 +79,43 @@ public class CircleOneScript : MonoBehaviour
             playerInRange = false;
         }
     }
+    
+    private PlayerData GetUpdatedPlayerDataForNextLevel()
+    {
+        float[] playerStats = new float[2];
+        playerStats[0] = PlayerState.Instance.currentHealth;
+        playerStats[1] = PlayerState.Instance.currentCalories;
+
+        float[] newPlayerPosAndRot = new float[6];
+        newPlayerPosAndRot[0] = 481.57f; 
+        newPlayerPosAndRot[1] = 21.57f;  
+        newPlayerPosAndRot[2] = 27.92f; 
+
+        newPlayerPosAndRot[3] = 0f;  
+        newPlayerPosAndRot[4] = 0f;  
+        newPlayerPosAndRot[5] = 0f;  
+
+        string[] inventory = InventorySystem.Instance.itemList.ToArray();
+        string[] quickSlots = GetQuickSlotsContent();
+
+        return new PlayerData(playerStats, newPlayerPosAndRot, inventory, quickSlots);
+    }
+
+    private string[] GetQuickSlotsContent()
+    {
+        List<string> temp = new List<string>();
+        foreach (GameObject slot in EquipSystem.Instance.quickSlotsList)
+        {
+            if (slot.transform.childCount != 0)
+            {
+                string name  = slot.transform.GetChild(0).name;
+                string str2 = "(Clone)";
+                string cleanName=name.Replace(str2, "");
+                temp.Add(cleanName);
+            }
+        }
+        return temp.ToArray();
+    }
+    
+    
 }

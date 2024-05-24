@@ -52,13 +52,13 @@ public class SaveManager : MonoBehaviour
         SavingTypeSwitch(data,slotNumber);
     }
 
-    private EnviromentData getEnviromentData()
+    public EnviromentData getEnviromentData()
     {
         List<string> itemsPickedup = InventorySystem.Instance.itemsPickedup;
         return new EnviromentData(itemsPickedup);
     }
 
-    private PlayerData getPlayerData()
+    public PlayerData getPlayerData()
     {
         float[] playerStats = new float[2];
         playerStats[0] = PlayerState.Instance.currentHealth;
@@ -243,7 +243,7 @@ public class SaveManager : MonoBehaviour
         string encrypted = EncryptionDecryption(json);
         using (StreamWriter writer = new StreamWriter(jsonPathProject + fileName + slotNumber + ".json"))
         {
-            writer.Write(json);
+            writer.Write(encrypted);
             print("saved game to Json file at: " + jsonPathProject+ fileName + slotNumber + ".json");
         }
     }
@@ -253,7 +253,7 @@ public class SaveManager : MonoBehaviour
         {
             string json = reader.ReadToEnd();
             string decrypted = EncryptionDecryption(json);
-            AllGameData data = JsonUtility.FromJson<AllGameData>(json);
+            AllGameData data = JsonUtility.FromJson<AllGameData>(decrypted);
             return data;
         }
     }

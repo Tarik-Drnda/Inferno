@@ -26,7 +26,10 @@ public class CircleFiveScript : MonoBehaviour
         
         if (playerInRange == true)
         {
-            SaveManager.Instance.SaveGame(0);
+            AllGameData data = new AllGameData();
+            data.playerData = GetUpdatedPlayerDataForNextLevel();
+            data.enviromentData = SaveManager.Instance.getEnviromentData();
+            SaveManager.Instance.SavingTypeSwitch(data,0);
             SceneManager.LoadScene("6.krug2");
         }
         infoTabText.GetComponent<Text>().text = "Stay in the boat!";
@@ -52,4 +55,44 @@ public class CircleFiveScript : MonoBehaviour
             playerInRange = false;
         }
     }
+    
+    
+    private PlayerData GetUpdatedPlayerDataForNextLevel()
+    {
+        float[] playerStats = new float[2];
+        playerStats[0] = PlayerState.Instance.currentHealth;
+        playerStats[1] = PlayerState.Instance.currentCalories;
+
+        float[] newPlayerPosAndRot = new float[6];
+        newPlayerPosAndRot[0] = 66.3f; 
+        newPlayerPosAndRot[1] = 2f;  
+        newPlayerPosAndRot[2] = 7.31f; 
+
+        newPlayerPosAndRot[3] = 0f;  
+        newPlayerPosAndRot[4] = 0f;  
+        newPlayerPosAndRot[5] = 0f;  
+
+        string[] inventory = InventorySystem.Instance.itemList.ToArray();
+        string[] quickSlots = GetQuickSlotsContent();
+
+        return new PlayerData(playerStats, newPlayerPosAndRot, inventory, quickSlots);
+    }
+
+    private string[] GetQuickSlotsContent()
+    {
+        List<string> temp = new List<string>();
+        foreach (GameObject slot in EquipSystem.Instance.quickSlotsList)
+        {
+            if (slot.transform.childCount != 0)
+            {
+                string name  = slot.transform.GetChild(0).name;
+                string str2 = "(Clone)";
+                string cleanName=name.Replace(str2, "");
+                temp.Add(cleanName);
+            }
+        }
+        return temp.ToArray();
+    }
+
+    
 }

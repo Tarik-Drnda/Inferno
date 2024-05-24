@@ -879,7 +879,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   quickSlotsPanel: {fileID: 954180299}
-  quickSlotsList: []
+  quickSlotsList:
+  - {fileID: 1390490399}
+  - {fileID: 14969485}
+  - {fileID: 36804244}
+  - {fileID: 1351215654}
   itemList: []
   numbersHolder: {fileID: 218051847}
   selectedNumber: -1
